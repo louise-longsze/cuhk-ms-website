@@ -6,6 +6,7 @@ import MaxWidthWrapper from "@/components/maxwidthwrapper";
 import Image from "next/image";
 import { dietsvg, endocrinesvg, fatsvg, sportssvg } from "@/constants";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { LandingTable } from "@/components/landingtable";
 
 export default function Home() {
   return (
@@ -50,32 +51,35 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col items-center pt-5">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-              了解更多
-            </h2>
-            <FaArrowAltCircleDown
-              className="animate-bounce w-8 h-8 text-primary"
-              href="#section02"
-            />
-
-            <Link href={"#section02"}></Link>
+            <LandingTable />
+            <Link href={"#section02"}>
+              <h2 className="pt-5 text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                了解更多
+              </h2>
+            </Link>
+            <Link href={"#section02"} className="pt-5">
+              <FaArrowAltCircleDown
+                className="animate-bounce w-7 h-7 text-primary"
+                href="#section02"
+              />
+            </Link>
           </div>
         </MaxWidthWrapper>
       </section>
       <section id="section02">
-        <div className="min-h-screen flex items-center justify-center px-16">
+        <div className="min-h-screen flex items-center justify-center pb-10">
           <div className="relative w-full max-w-7xl">
             <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
             <div className="absolute top-0 -right-4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-            <div className="m-8 relative space-y-4">
-              <div className="py-20 px-5 bg-white rounded-lg flex flex-col items-center justify-center space-x-8">
-                <h1 className="text-6xl font-semibold leading-none ">
+            <div className="relative space-y-4">
+              <div className="p-20 m-5 bg-white rounded-lg flex flex-col items-center justify-center">
+                <h1 className="text-4xl lg:text-6xl font-semibold leading-none pb-10">
                   代謝症候群的成因
                 </h1>
-                <p className="pt-5 dark:text-gray-600">導致因素包括：</p>
-                <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-2">
-                  <div className="flex flex-col items-center p-4">
+                <p>導致因素包括：</p>
+                <div className="container mx-auto grid justify-center gap-4 lg:grid-cols-2">
+                  <div className="flex flex-col justify-center items-center p-4">
                     <svg
                       viewBox="0 0 160 160"
                       fill="currentColor"
@@ -143,8 +147,57 @@ export default function Home() {
                   <br />
                   香港中文大學內科及藥物治療學系進行的研究顯示，隨著年齡的增長，代謝症候群的風險增加，老年人更容易患此疾病。
                 </p>
+                <Image src="/reason2.png" alt="" width={895} height={628} />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="flex flex-col justify-center items-center bg-white py-16">
+          <h1 className="text-4xl lg:text-6xl font-semibold leading-none pb-10">
+            代謝症候群併發症
+          </h1>
+          <div className="mx-auto p-6">
+            <div className="md:flex justify-center space-x-10">
+              <div className="bg-gradient-to-tr from-slate-700 to-stone-700 relative w-80 h-80 max-w-full rounded-lg shadow-2xl overflow-hidden">
+                <img
+                  className="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
+                  src="/hearts_640x427.jpg"
+                  alt=""
+                />
+                <h3 className="absolute bottom-10 right-10 my-3 text-2xl font-semibold text-blue-50">
+                  心血管疾病
+                </h3>
+              </div>
+              <div className="bg-gradient-to-tr from-slate-700 to-stone-700 relative w-80 h-80 max-w-full rounded-lg shadow-2xl overflow-hidden">
+                <img
+                  className="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
+                  src="/stroke.jpg"
+                  alt=""
+                />
+                <h3 className="absolute bottom-10 right-10 my-3 text-2xl font-semibold text-blue-50">
+                  中風
+                </h3>
+              </div>
+              <div className="bg-gradient-to-tr from-slate-700 to-stone-700 relative w-80 h-80 max-w-full rounded-lg shadow-2xl overflow-hidden">
+                <img
+                  className="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
+                  src="/diabetes_640x1138.jpg"
+                  alt=""
+                />
+                <h3 className="absolute bottom-10 right-10 my-3 text-2xl font-semibold text-blue-50">
+                  糖尿病
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center px-24 m-5">
+            <p className="mt-4 mb-8 p-regular-20 font-medium leading-6">
+              代謝症候群可以增加心血管疾病、中風和糖尿病等疾病的風險。高三酸甘油酯、高膽固醇和高血壓可以損害血管壁，增加動脈粥樣硬化的風險。高空腹血糖可以導致胰島素阻力和糖尿病的發生。
+              對於胰島素抵抗的人，身體的細胞變得對胰島素的作用產生抵抗，並且身體必須產生更多的胰島素來補償。這可能會導致血液中胰島素水平升高，進而增加患2型糖尿病的風險。
+              高血糖水平還會導致血管受損，增加患心血管疾病的風險。血液中過多的葡萄糖會使血管變得僵硬且不靈活，從而增加動脈粥樣硬化的風險。動脈粥樣硬化是一種疾病，其中動脈壁上形成斑塊，進而導致心肌梗死或中風。
+            </p>
           </div>
         </div>
       </section>
