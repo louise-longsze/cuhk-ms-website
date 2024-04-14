@@ -1,5 +1,9 @@
 const CholesterolPage = () => {
-  return <div>CholesterolPage</div>;
+  return (
+    <section>
+      <div></div>
+    </section>
+  );
 };
 
 export default CholesterolPage;
