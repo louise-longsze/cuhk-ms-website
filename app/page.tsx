@@ -10,10 +10,6 @@ import {
   fatsvg,
   learnmoresvg,
   sportssvg,
-  wave1bgsvg,
-  wave2bgsvg,
-  wave3bgsvg,
-  wave4bgsvg,
 } from "@/constants";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { GiFat } from "react-icons/gi";
@@ -86,7 +82,7 @@ export default function Home() {
             <div className="absolute top-0 -right-4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             <div className="relative space-y-4">
-              <div className="p-20 m-5 bg-white rounded-lg flex flex-col items-center justify-center">
+              <div className="px-20 pb-20 m-5 bg-white rounded-lg flex flex-col items-center justify-center">
                 <h2>代謝症候群的成因</h2>
                 <p>導致因素包括：</p>
                 <div className="container mx-auto grid justify-center gap-4 lg:grid-cols-2">
@@ -256,7 +252,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row justify-between items-center px-5 m-5">
             <div className="max-w-sm p-6 m-5 bg-white border border-gray-200 rounded-lg shadow">
               <PiHeartbeatFill className="w-8 h-8 text-primary" />
-              <a href="#">
+              <a href="/general/highblood">
                 <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
                   高血壓
                 </h5>
@@ -265,7 +261,7 @@ export default function Home() {
                 代謝症候群其中一個重要的可改變風險因素。
               </p>
               <a
-                href="#"
+                href="/general/highblood"
                 className="inline-flex font-medium items-center text-primary hover:underline"
               >
                 了解更多
@@ -275,19 +271,13 @@ export default function Home() {
                   fill="none"
                   viewBox="0 0 18 18"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d={learnmoresvg}
-                  />
+                  <path d={learnmoresvg} />
                 </svg>
               </a>
             </div>
             <div className="max-w-sm p-6 m-5 bg-white border border-gray-200 rounded-lg shadow">
               <LuCandy className="w-8 h-8 text-primary" />
-              <a href="#">
+              <a href="/general/diabetes">
                 <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
                   糖尿病
                 </h5>
@@ -296,7 +286,7 @@ export default function Home() {
                 血糖長期過高會導致血管病變，令多個器官出現問題。
               </p>
               <a
-                href="#"
+                href="/general/diabetes"
                 className="inline-flex font-medium items-center text-primary hover:underline"
               >
                 了解更多
@@ -306,19 +296,13 @@ export default function Home() {
                   fill="none"
                   viewBox="0 0 18 18"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d={learnmoresvg}
-                  />
+                  <path d={learnmoresvg} />
                 </svg>
               </a>
             </div>
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
               <GiFat className="w-8 h-8 text-primary" />
-              <a href="#">
+              <a href="/general/obese">
                 <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
                   超重或肥胖
                 </h5>
@@ -327,7 +311,7 @@ export default function Home() {
                 肥胖定義為損害健康的多餘脂肪，通常以BMI ≥ 30kg/m2來定義的。
               </p>
               <a
-                href="#"
+                href="/general/obese"
                 className="inline-flex font-medium items-center text-primary hover:underline"
               >
                 了解更多
@@ -337,13 +321,7 @@ export default function Home() {
                   fill="none"
                   viewBox="0 0 18 18"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d={learnmoresvg}
-                  />
+                  <path d={learnmoresvg} />
                 </svg>
               </a>
             </div>

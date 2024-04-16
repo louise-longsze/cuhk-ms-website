@@ -28,34 +28,114 @@ export const learnmoresvg =
 export const sadsymptoms = [
   {
     label: "傷⼼",
-    imagepath: "/obesity1.svg",
+    imagepath: "/tips/tips-cry.jpg",
   },
   {
     label: "想哭",
-    imagepath: "/bigbelly.png",
+    imagepath: "/tips/tips-sad.jpg",
   },
   {
     label: "⾷慾下降",
-    imagepath: "/stroke.jpg",
+    imagepath: "/tips/tips-food.jpg",
   },
   {
     label: "早上很早便醒來",
-    imagepath: "/stroke.jpg",
+    imagepath: "/tips/tips-morning.jpg",
   },
   {
     label: "以前感到有興趣的事情，現在都不感興趣了",
-    imagepath: "/stroke.jpg",
+    imagepath: "/tips/tips-no.jpg",
   },
   {
     label: "覺得沒有力量做任何事",
-    imagepath: "/stroke.jpg",
+    imagepath: "/tips/tips-thin.jpg",
   },
   {
     label: "對⾃己的外表不再感興趣",
-    imagepath: "/stroke.jpg",
+    imagepath: "/tips/tips-outfit.jpg",
   },
   {
     label: "其他",
-    imagepath: "/stroke.jpg",
+    imagepath: "/tips/tips-others.jpg",
+  },
+];
+
+export const pressurelist = [
+  { label: "經常感到⼗分忙碌" },
+  { label: "激動和神經緊張" },
+  { label: "對於所有人都沒有耐性" },
+  { label: "很容易發怒" },
+  { label: "沒有時間談天" },
+  { label: "批評每⼀個人" },
+  { label: "經常在最後一刻改變主意" },
+  { label: "不能安靜坐一會兒" },
+  { label: "不能輕易計畫事情" },
+  { label: "經常感到疲倦" },
+  { label: "有很多的歎息" },
+  { label: "頗善忘" },
+  { label: "莫名奇妙的痛楚" },
+  { label: "經常皺眉頭" },
+  { label: "經常感到憂慮" },
+  { label: "不能安靜" },
+  { label: "⼯作至⼗分疲倦" },
+  { label: "生活不再感到有興趣" },
+  { label: "感到十分氣餒" },
+];
+
+export const relaxlist = [
+  {
+    item: "item-1",
+    trigger: "體育鍛煉",
+    content:
+      "任何形式的體育鍛煉都可以緩解壓力。嘗試每日在繁忙的日程中抽出30分鐘做運動，它可以增加你感覺良好的「安多酚」和其他天然神經化學物質，從⽽增強你的幸福感。運動還可以使你的思想重新集中在身體，從而改善⼼情，幫助消除⼀天中的煩惱。考慮步行，慢跑，園藝，打掃房子，騎單車，游泳，舉重或其他讓你活躍的活動。",
+  },
+  {
+    item: "item-2",
+    trigger: "冥想",
+    content:
+      "冥想可以灌輸一種平靜，安寧和平衡的感覺，有益於您的情緒健康和整體健康。",
+  },
+  {
+    item: "item-3",
+    trigger: "深呼吸運動",
+    content: "呼吸運動可鬆弛神經及精神，亦有助入睡，提升睡眠質量。",
+  },
+  {
+    item: "item-4",
+    trigger: "務實⽬標",
+    content: "避免同時處理太多事務，為⾃己訂立務實⽬標。",
+  },
+  {
+    item: "item-5",
+    trigger: "健康飲⾷",
+    content: "健康飲⾷是照顧⾃己的重要組成部分。記得多吃各種⽔果和蔬菜。",
+  },
+  {
+    item: "item-6",
+    trigger: "多笑⼀點",
+    content:
+      "多笑⼀點。即使是強迫假笑，也可以幫助您感覺更好。當你⼤笑時，減輕你的精神負擔。因此，請閱讀⼀些笑話，講⼀些笑話，看喜劇或與有趣的朋友⼀起閒逛。或嘗試大笑瑜伽。",
+  },
+  {
+    item: "item-7",
+    trigger: "社交接觸",
+    content:
+      "可多些與家人和朋友聯繫。當您感到壓⼒和煩躁時，你的直覺可能就是孤立⾃己。相反，請與家⼈和朋友聯繫並建⽴社交關係。社交接觸是⼀種很好的緩解壓⼒的⽅法，因為它可以分散注意力，提供⽀持並幫助你應對⽣活的起伏。",
+  },
+  {
+    item: "item-8",
+    trigger: "志願服務",
+    content: "可考慮為慈善團體做志願服務，並在幫助他⼈的同時幫助⾃己。",
+  },
+  {
+    item: "item-9",
+    trigger: "日記",
+    content:
+      "⽤日記形式寫下你的想法和感受可以很好地釋放原本被壓抑的情緒。不要考慮要寫什麼，只要寫下想出的⼀切。沒有其他人需要閱讀它，因此不要在語法或拼寫上追求完美。完成後，您可以拋棄所寫的內容或保存以供⽇後參考。",
+  },
+  {
+    item: "item-10",
+    trigger: "探索感官",
+    content: "探索各種感官體驗，以便無論⾝在何處，都始終擁有緩解壓⼒的⼯具。",
   },
 ];

@@ -111,6 +111,13 @@ h2 {
     hue-rotate(32deg) brightness(98%) contrast(92%);
 }
 
+h4 {
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 600;
+  line-height: 1;
+  padding-bottom: 2.5rem; /* 40px */
+}
 /* ========================================== TAILWIND STYLES */
 @layer utilities {
   .wrapper {

@@ -5,7 +5,15 @@
  */
 export const publicRoutes = [
   "/",
-  "/auth/new-verification"
+  "/general/cholesterol",
+  "/general/diabetes",
+  "/general/diet",
+  "/general/highblood",
+  "/general/obese",
+  "/general/smoke",
+  "/general/sports",
+  "/general/tips",
+  "/auth/new-verification",
 ];
 
 /**
@@ -18,7 +26,7 @@ export const authRoutes = [
   "/auth/register",
   "/auth/error",
   "/auth/reset",
-  "/auth/new-password"
+  "/auth/new-password",
 ];
 
 /**
