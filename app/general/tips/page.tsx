@@ -54,9 +54,12 @@ const TipsPage = () => {
                 <h4>憂鬱的症狀包括</h4>
               </div>
               <div className="grid grid-cols-4 gap-6">
-                {sadsymptoms.map((symptoms) => {
+                {sadsymptoms.map((symptoms, index) => {
                   return (
-                    <div className="group pb-24 relative overflow-hidden">
+                    <div
+                      className="group pb-24 relative overflow-hidden"
+                      key={index}
+                    >
                       <div className="group-hover:translate-y-0 transition-all duration-700 translate-y-full top-0 right-0 bottom-24 left-0 absolute bg-gradient-to-b from-transparent to-primary z-10"></div>
                       <img
                         src={symptoms.imagepath}
@@ -92,9 +95,12 @@ const TipsPage = () => {
             </div>
           </div>
           <div className="grid grid-cols-4 pl-2 items-center space-x-2 justify-center">
-            {pressurelist.map((pressure) => {
+            {pressurelist.map((pressure, index) => {
               return (
-                <div className="group pb-12 relative overflow-hidden">
+                <div
+                  className="group pb-12 relative overflow-hidden"
+                  key={index}
+                >
                   <Checkbox id={pressure.label} />
                   <label
                     htmlFor={pressure.label}
@@ -126,9 +132,9 @@ const TipsPage = () => {
           </div>
           <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl justify-center items-center">
             <div className="justify-center items-center pr-20">
-              {relaxlist.map((relax) => {
+              {relaxlist.map((relax, index) => {
                 return (
-                  <Accordion type="single" collapsible>
+                  <Accordion type="single" collapsible key={index}>
                     <AccordionItem value={relax.item}>
                       <AccordionTrigger className="p-bold-20">
                         {relax.trigger}
