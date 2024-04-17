@@ -139,3 +139,107 @@ export const relaxlist = [
     content: "探索各種感官體驗，以便無論⾝在何處，都始終擁有緩解壓⼒的⼯具。",
   },
 ];
+
+export const cholist = [
+  {
+    item: "item-1",
+    trigger: "低密度脂蛋白 (LDL)",
+    content:
+      "低密度脂蛋⽩俗稱「低密度膽固醇」，佔膽固醇的⼤部分，並且是有害的，因為它會粘在動脈壁上並引起脂肪堆積，稱為斑塊。斑塊過多會導致堵塞，阻止⾎液正常流入⼼臟。",
+  },
+  {
+    item: "item-2",
+    trigger: "高密度脂蛋⽩ (HDL)",
+    content:
+      "⾼密度脂蛋白俗稱「⾼密度膽固醇」，它之所以健康，是因為它可以將LDL“壞”膽固醇從動脈帶⾛並返回肝臟，肝臟將 LDL分解並作為廢物傳遞，因此可以從體內排出。",
+  },
+  {
+    item: "item-3",
+    trigger: "三酸甘油脂 (Triglycerides)",
+    content:
+      "三酸甘油脂是體內最常⾒的脂肪存儲在⼈體的脂肪細胞中。體重超重，吃⼤量高脂肪和含糖食品或喝太多酒會增加三酸⽢油脂⽔平。三酸甘油脂也會導致動脈壁變窄，增加患病⾵險。您可能會在膽固醇報告中看到它，您可以有正常的 HDL 和非 HDL 膽固醇⽔平，但三酸⽢油脂⽔平仍然很⾼。",
+  },
+  {
+    item: "item-4",
+    trigger: "⾮⾼密度脂蛋⽩ (Non-HDL)",
+    content:
+      "⾮高密度脂蛋⽩或⾮ HDL 被稱為“壞”膽固醇。這是因為當它太多時，它會在⾎管壁內堆積。這會堵塞它們，導致動脈變窄，從⽽增加您罹患⼼臓病或中風的風險。其他形式的⾮ HDL 膽固醇也是有害的。",
+  },
+  {
+    item: "item-5",
+    trigger: "總膽固醇 (Total Cholesterol)",
+    content: "總膽固醇是一種衡量好壞膽固醇的指標。",
+  },
+];
+
+export const choreasonlist = [
+  {
+    item: "抽煙",
+    description:
+      "吸煙會導致⾼膽固醇水平，它在動脈中引起的焦油堆積使膽固醇更容易粘在動脈壁上。",
+  },
+  {
+    item: "缺乏體育鍛煉",
+    description: "不夠活躍，缺乏運動。",
+  },
+  {
+    item: "超重或肥胖",
+    description:
+      "如果超重，體內脂肪過多，尤其是中部脂肪;或患有糖尿病，則罹患高膽固醇的⾵險更大。",
+  },
+  {
+    item: "不健康的飲食",
+    description: "吃太多含飽和脂肪的⾷物飲料。",
+  },
+];
+
+export const choreasonlist2 = [
+  {
+    item: "年齡變老了",
+    description: "",
+  },
+  {
+    item: "性別",
+    description: "",
+  },
+  {
+    item: "家族史",
+    description:
+      "家族性高膽固醇⾎症(FH)，一種與生俱來的高膽固醇，早發性冠心病的家族史(男性在 55 歲之前，女性在 65 歲之前)",
+  },
+  {
+    item: "種族背景",
+    description: "",
+  },
+  {
+    item: "腎臟或肝臟疾病",
+    description: "",
+  },
+  {
+    item: "甲狀腺活動不⾜",
+    description: "",
+  },
+];
+
+export const chobetterlist = [
+  {
+    label: "保持活躍，多做運動",
+    imagepath: "/cholesterol/redirect1.jpg",
+    link: "/general/sports",
+  },
+  {
+    label: "吃健康均衡的飲食，選吃低飽和脂肪食物及飲料",
+    imagepath: "/cholesterol/redirect2.jpg",
+    link: "/general/diet",
+  },
+  {
+    label: "戒煙",
+    imagepath: "/cholesterol/redirect3.jpg",
+    link: "/general/smoke",
+  },
+  {
+    label: "詳細了解如何過健康的生活⽅式",
+    imagepath: "/cholesterol/redirect4.jpg",
+    link: "/general/tips",
+  },
+];
