@@ -4,13 +4,7 @@ import Link from "next/link";
 import MaxWidthWrapper from "@/components/maxwidthwrapper";
 
 import Image from "next/image";
-import {
-  dietsvg,
-  endocrinesvg,
-  fatsvg,
-  learnmoresvg,
-  sportssvg,
-} from "@/constants";
+import { dietsvg, endocrinesvg, fatsvg, sportssvg } from "@/constants";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { GiFat } from "react-icons/gi";
 import { LuCandy } from "react-icons/lu";
@@ -82,7 +76,7 @@ export default function Home() {
             <div className="absolute top-0 -right-4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
             <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             <div className="relative space-y-4">
-              <div className="px-20 pb-20 m-5 bg-white rounded-lg flex flex-col items-center justify-center">
+              <div className="p-20 m-5 bg-white rounded-lg flex flex-col items-center justify-center">
                 <h2>代謝症候群的成因</h2>
                 <p>導致因素包括：</p>
                 <div className="container mx-auto grid justify-center gap-4 lg:grid-cols-2">
@@ -265,14 +259,6 @@ export default function Home() {
                 className="inline-flex font-medium items-center text-primary hover:underline"
               >
                 了解更多
-                <svg
-                  className="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
-                  aria-hidden="true"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path d={learnmoresvg} />
-                </svg>
               </a>
             </div>
             <div className="max-w-sm p-6 m-5 bg-white border border-gray-200 rounded-lg shadow">
@@ -290,14 +276,6 @@ export default function Home() {
                 className="inline-flex font-medium items-center text-primary hover:underline"
               >
                 了解更多
-                <svg
-                  className="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
-                  aria-hidden="true"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path d={learnmoresvg} />
-                </svg>
               </a>
             </div>
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
@@ -315,14 +293,6 @@ export default function Home() {
                 className="inline-flex font-medium items-center text-primary hover:underline"
               >
                 了解更多
-                <svg
-                  className="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
-                  aria-hidden="true"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path d={learnmoresvg} />
-                </svg>
               </a>
             </div>
           </div>
