@@ -78,7 +78,7 @@ export default function Home() {
             <div className="relative space-y-4">
               <div className="p-20 m-5 bg-white rounded-lg flex flex-col items-center justify-center">
                 <h2>代謝症候群的成因</h2>
-                <p>導致因素包括：</p>
+                <h4>導致因素包括：</h4>
                 <div className="container mx-auto grid justify-center gap-4 lg:grid-cols-2">
                   <div className="flex flex-col justify-center items-center p-4">
                     <svg

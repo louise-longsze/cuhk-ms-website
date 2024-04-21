@@ -63,14 +63,16 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>膽固醇的種類</h2>
-            <p>
-              膽固醇是由蛋⽩質攜帶在您的⾎液中的，當膽固醇和蛋⽩質結合時，它們稱為脂蛋白︒膽固醇有兩種主要類型。⾼密度脂蛋⽩或
-              HDL
-              被稱為“好”膽固醇。這是因為它消除了血液中的“壞”膽固醇。不需要的膽固醇會被帶回肝臟，肝臟將其分解，因此可以從體內排出。⾮⾼密度脂蛋⽩或⾮
-              HDL
-              被稱為“壞”膽固醇。這是因為當它太多時，會在血管壁內堆積，這會堵塞並導致動脈變窄，從而增加您罹患⼼臓病或中⾵的⾵險。您可能還聽說過“壞”膽固醇被稱為“LDL”膽固醇。以前曾用它作為不良膽固醇的主要量度，但現在我們知道其他形式的非
-              HDL 膽固醇也是有害的。
-            </p>
+            <div className="flex flex-col justify-center items-center px-24 m-5">
+              <p>
+                膽固醇是由蛋⽩質攜帶在您的⾎液中的，當膽固醇和蛋⽩質結合時，它們稱為脂蛋白︒膽固醇有兩種主要類型。⾼密度脂蛋⽩或
+                HDL
+                被稱為“好”膽固醇。這是因為它消除了血液中的“壞”膽固醇。不需要的膽固醇會被帶回肝臟，肝臟將其分解，因此可以從體內排出。⾮⾼密度脂蛋⽩或⾮
+                HDL
+                被稱為“壞”膽固醇。這是因為當它太多時，會在血管壁內堆積，這會堵塞並導致動脈變窄，從而增加您罹患⼼臓病或中⾵的⾵險。您可能還聽說過“壞”膽固醇被稱為“LDL”膽固醇。以前曾用它作為不良膽固醇的主要量度，但現在我們知道其他形式的非
+                HDL 膽固醇也是有害的。
+              </p>
+            </div>
           </div>
           <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl justify-center items-center">
             <div className="justify-center items-center pr-20">
@@ -145,46 +147,50 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>什麼會導致⾼膽固醇?</h2>
-            <p>
-              沒有單⼀原因導致高膽固醇的，但是有⼀些可控制的危險因素(例如:吸煙)。另外還有不可控制的危險因素(例如年齡)。
-            </p>
-            <h4>可控制的危險因素包括:</h4>
-            <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
-              {choreasonlist.map((choreason, index) => {
-                return (
-                  <div className="mb-12 lg:mb-0" key={index}>
-                    <div className="mb-6 inline-block rounded-full bg-blue-100 p-4 text-primary shadow-sm">
-                      <TiTick className="w-8 h-8" />
+            <div className="flex flex-col justify-center items-center px-24 m-5">
+              <p>
+                沒有單⼀原因導致高膽固醇的，但是有⼀些可控制的危險因素(例如:吸煙)。另外還有不可控制的危險因素(例如年齡)。
+              </p>
+              <h4>可控制的危險因素包括:</h4>
+              <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
+                {choreasonlist.map((choreason, index) => {
+                  return (
+                    <div className="mb-12 lg:mb-0" key={index}>
+                      <div className="mb-6 inline-block rounded-full bg-blue-100 p-4 text-primary shadow-sm">
+                        <TiTick className="w-8 h-8" />
+                      </div>
+                      <h5 className="mb-4 text-lg font-bold">
+                        {choreason.item}
+                      </h5>
+                      <p className="text-neutral-500 dark:text-neutral-300">
+                        {choreason.description}
+                      </p>
                     </div>
-                    <h5 className="mb-4 text-lg font-bold">{choreason.item}</h5>
-                    <p className="text-neutral-500 dark:text-neutral-300">
-                      {choreason.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-            <h4>不可控制的危險因素:</h4>
-            <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
-              {choreasonlist2.map((choreason2, index) => {
-                return (
-                  <div className="mb-12 lg:mb-0" key={index}>
-                    <div className="mb-6 inline-block rounded-full bg-red-100 p-4 text-red-400 shadow-sm">
-                      <TiTimes className="w-8 h-8" />
+                  );
+                })}
+              </div>
+              <h4>不可控制的危險因素:</h4>
+              <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+                {choreasonlist2.map((choreason2, index) => {
+                  return (
+                    <div className="mb-12 lg:mb-0" key={index}>
+                      <div className="mb-6 inline-block rounded-full bg-red-100 p-4 text-red-400 shadow-sm">
+                        <TiTimes className="w-8 h-8" />
+                      </div>
+                      <h5 className="mb-4 text-lg font-bold">
+                        {choreason2.item}
+                      </h5>
+                      <p className="text-neutral-500 dark:text-neutral-300">
+                        {choreason2.description}
+                      </p>
                     </div>
-                    <h5 className="mb-4 text-lg font-bold">
-                      {choreason2.item}
-                    </h5>
-                    <p className="text-neutral-500 dark:text-neutral-300">
-                      {choreason2.description}
-                    </p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+              <p>
+                擁有的風險因素越多，患⼼臓病或循環系統疾病（例如心臓病發作，中風或血管性癡呆）的風險就越高。無論是什麼原因，改善您的⽣活⽅式(包括飲⾷)都可以幫助降低患心臓病的⾵險。
+              </p>
             </div>
-            <p>
-              擁有的風險因素越多，患⼼臓病或循環系統疾病（例如心臓病發作，中風或血管性癡呆）的風險就越高。無論是什麼原因，改善您的⽣活⽅式(包括飲⾷)都可以幫助降低患心臓病的⾵險。
-            </p>
           </div>
         </MaxWidthWrapper>
       </section>
@@ -192,14 +198,16 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>膽固醇如何測量?</h2>
-            <p>
-              膽固醇通過稱為脂質組或脂質譜的血液測試進行測量，也可用簡單的血液測試來測量，醫生或執業護⼠通常會通過刺破⼿指來採集⾎液樣本。若在醫院或化驗所進⾏血液檢查，膽固醇測試通常涉及從手臂的靜脈抽血。然後檢查血液中的好膽固醇(HDL)，壞膽固醇(非
-              HDL)，三酸甘油脂，
-              以及總膽固醇⽔平。該測試可以幫助確定動脈粥樣硬化的⾵險，動脈粥樣硬化是斑塊積聚，狹窄或阻塞了動脈。一般⽽言，對於健康的心臟，目標是具有較低的非
-              HDL 水平和較高的 HDL 水平。
-              如果您被告知膽固醇水平很高，則您的⾎液中膽固醇⽔平過多，這會增加您患心臓病或中風的⾵險。但是高水平的“好”(HDL)膽固醇可以幫助控制“壞”(非
-              HDL)膽固醇。
-            </p>
+            <div className="flex flex-col justify-center items-center px-24 m-5">
+              <p>
+                膽固醇通過稱為脂質組或脂質譜的血液測試進行測量，也可用簡單的血液測試來測量，醫生或執業護⼠通常會通過刺破⼿指來採集⾎液樣本。若在醫院或化驗所進⾏血液檢查，膽固醇測試通常涉及從手臂的靜脈抽血。然後檢查血液中的好膽固醇(HDL)，壞膽固醇(非
+                HDL)，三酸甘油脂，
+                以及總膽固醇⽔平。該測試可以幫助確定動脈粥樣硬化的⾵險，動脈粥樣硬化是斑塊積聚，狹窄或阻塞了動脈。一般⽽言，對於健康的心臟，目標是具有較低的非
+                HDL 水平和較高的 HDL 水平。
+                如果您被告知膽固醇水平很高，則您的⾎液中膽固醇⽔平過多，這會增加您患心臓病或中風的⾵險。但是高水平的“好”(HDL)膽固醇可以幫助控制“壞”(非
+                HDL)膽固醇。
+              </p>
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>
@@ -207,21 +215,23 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>如何解讀您的膽固醇結果?</h2>
-            <p>
-              膽固醇和三酸甘油脂的單位為毫摩爾/升血液，通常縮寫為“mmol/L”。沒有特定的目標膽固醇水平，因為您的醫⽣會依據年齡和家族病史等因素研究您罹患心臓病和循環系統疾病的總體⾵險⽽有所不同，因此請諮詢您的醫⽣，哪種⽔平最適合您。
-              <br />
-              <br />
-              全⾎膽固醇測試通常會檢查:
-            </p>
-            <Image
-              src="/cholesterol/cho4.png"
-              alt=""
-              width={554}
-              height={359}
-            />
-            <p>
-              ⾼三酸⽢油脂，或者低密度脂蛋⽩膽固醇升高或高密度脂蛋白膽固醇降低，都會增加動脈中脂肪堆積的機會，從而增加心臓病發作和中⾵的⾵險。
-            </p>
+            <div className="flex flex-col justify-center items-center px-24 m-5">
+              <p>
+                膽固醇和三酸甘油脂的單位為毫摩爾/升血液，通常縮寫為“mmol/L”。沒有特定的目標膽固醇水平，因為您的醫⽣會依據年齡和家族病史等因素研究您罹患心臓病和循環系統疾病的總體⾵險⽽有所不同，因此請諮詢您的醫⽣，哪種⽔平最適合您。
+                <br />
+                <br />
+                全⾎膽固醇測試通常會檢查:
+              </p>
+              <Image
+                src="/cholesterol/cho4.png"
+                alt=""
+                width={554}
+                height={359}
+              />
+              <p>
+                ⾼三酸⽢油脂，或者低密度脂蛋⽩膽固醇升高或高密度脂蛋白膽固醇降低，都會增加動脈中脂肪堆積的機會，從而增加心臓病發作和中⾵的⾵險。
+              </p>
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>
@@ -266,9 +276,11 @@ const CholesterolPage = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
             <h4>高膽固醇的藥物和治療</h4>
-            <p>
-              如果您的膽固醇很高，並且生活⽅式改變不夠，醫⽣可能建議您通過藥物控制膽固醇。他汀類藥物是用於降低膽固醇的主要藥物。醫⽣會告知您是否需要服用其他有助於控制膽固醇水平的藥物。
-            </p>
+            <div className="flex flex-col justify-center items-center px-24 m-5">
+              <p>
+                如果您的膽固醇很高，並且生活⽅式改變不夠，醫⽣可能建議您通過藥物控制膽固醇。他汀類藥物是用於降低膽固醇的主要藥物。醫⽣會告知您是否需要服用其他有助於控制膽固醇水平的藥物。
+              </p>
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>
