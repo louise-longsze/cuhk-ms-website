@@ -251,7 +251,7 @@ export default function Home() {
                   高血壓
                 </h5>
               </a>
-              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+              <p className="mb-3 font-normal text-gray-500">
                 代謝症候群其中一個重要的可改變風險因素。
               </p>
               <a
@@ -268,7 +268,7 @@ export default function Home() {
                   糖尿病
                 </h5>
               </a>
-              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+              <p className="mb-3 font-normal text-gray-500">
                 血糖長期過高會導致血管病變，令多個器官出現問題。
               </p>
               <a
@@ -285,7 +285,7 @@ export default function Home() {
                   超重或肥胖
                 </h5>
               </a>
-              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+              <p className="mb-3 font-normal text-gray-500">
                 肥胖定義為損害健康的多餘脂肪，通常以BMI ≥ 30kg/m2來定義的。
               </p>
               <a

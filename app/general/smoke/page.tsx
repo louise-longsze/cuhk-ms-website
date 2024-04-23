@@ -60,9 +60,9 @@ const SmokePage = () => {
                   alt=""
                   className="h-80 object-cover aspect-video"
                 />
-                <div className="flex flex-col justify-center flex-1 p-6 ">
+                <div className="flex flex-col justify-center flex-1 p-6">
                   <h3 className="text-3xl font-bold">尼古丁</h3>
-                  <p className="my-6 dark:text-gray-600">
+                  <p className="my-6">
                     尼古丁會破壞血液裏的細胞，使這些細胞黏在血壁上。它令⾎液更容易凝結及令到血壁容易受損。血液從這些損壞的血壁可能會變成凝塊，這些凝塊會在身體內移動⾄較窄的血管，如果它們不能通過⾎管，便會做成栓塞，引致心臟病或其他疾病。此外尼古丁也會令腎上腺分泌增加，增加心臟⼯作負荷，令⾎壓上升。
                   </p>
                 </div>
@@ -116,7 +116,7 @@ const SmokePage = () => {
         <MaxWidthWrapper>
           <div className="container mx-auto p-4 flex items-center justify-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="max-w-m mx-auto relative shadow-md rounded-lg cursor-pointer">
+              <div className="max-w-m mx-auto relative shadow-md rounded-lg">
                 <img
                   src="/smoke/pills2.jpg"
                   alt=""
@@ -130,7 +130,7 @@ const SmokePage = () => {
                 </div>
               </div>
 
-              <div className="max-w-m mx-auto relative shadow-md rounded-lg cursor-pointer">
+              <div className="max-w-m mx-auto relative shadow-md rounded-lg">
                 <img
                   src="/smoke/consult2.jpg"
                   alt=""

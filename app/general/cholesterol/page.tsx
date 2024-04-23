@@ -13,10 +13,6 @@ import {
   cholist,
   choreasonlist,
   choreasonlist2,
-  dietsvg,
-  endocrinesvg,
-  fatsvg,
-  sportssvg,
 } from "@/constants";
 import { TiTick, TiTimes } from "react-icons/ti";
 import { Button } from "@/components/ui/button";
@@ -32,31 +28,29 @@ const CholesterolPage = () => {
         }
         backgroundImage={"/bg-cholesterol.jpg"}
       />
-      <section>
+      <section className="mb-32">
         <div className="container my-24 mx-auto md:px-6">
-          <section className="mb-32">
-            <div className="block rounded-lg bg-white shadow-2xl">
-              <div className="flex flex-wrap items-center">
-                <div className="hidden shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
-                  <img
-                    src="/cholesterol/cho2.png"
-                    alt=""
-                    className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
-                  />
-                </div>
-                <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
-                  <div className="px-6 py-12 md:px-12">
-                    <h2>什麼是膽固醇?</h2>
-                    <p className="mb-6 text-neutral-500 dark:text-neutral-300">
-                      膽固醇是蠟狀，類似脂肪的物質。它是肝臟天然產生的。您的身體會產⽣膽固醇，某些⾷物中也會產⽣膽固醇。每個⼈都有膽固醇，它是製造激素和維⽣素
-                      D
-                      以及幫助您消化⾷物所必需的。我們需要它來保持健康，人體利用膽固醇來構建細胞，膽固醇過多會導致健康問題，使您處於患⼼臓病的危險中。
-                    </p>
-                  </div>
+          <div className="block rounded-lg bg-white shadow-2xl">
+            <div className="flex flex-wrap items-center">
+              <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
+                <img
+                  src="/cholesterol/cho2.png"
+                  alt=""
+                  className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
+                />
+              </div>
+              <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
+                <div className="px-6 py-12 md:px-12">
+                  <h2>什麼是膽固醇?</h2>
+                  <p className="mb-6 text-neutral-500">
+                    膽固醇是蠟狀，類似脂肪的物質。它是肝臟天然產生的。您的身體會產⽣膽固醇，某些⾷物中也會產⽣膽固醇。每個⼈都有膽固醇，它是製造激素和維⽣素
+                    D
+                    以及幫助您消化⾷物所必需的。我們需要它來保持健康，人體利用膽固醇來構建細胞，膽固醇過多會導致健康問題，使您處於患⼼臓病的危險中。
+                  </p>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </section>
       <section>
@@ -136,7 +130,7 @@ const CholesterolPage = () => {
             <div>
               <img
                 src="/cholesterol/doc.jpg"
-                className="w-full rounded-lg shadow-lg dark:shadow-black/20"
+                className="w-full rounded-lg shadow-lg"
                 alt=""
               />
             </div>
@@ -162,7 +156,7 @@ const CholesterolPage = () => {
                       <h5 className="mb-4 text-lg font-bold">
                         {choreason.item}
                       </h5>
-                      <p className="text-neutral-500 dark:text-neutral-300">
+                      <p className="text-neutral-500">
                         {choreason.description}
                       </p>
                     </div>
@@ -180,7 +174,7 @@ const CholesterolPage = () => {
                       <h5 className="mb-4 text-lg font-bold">
                         {choreason2.item}
                       </h5>
-                      <p className="text-neutral-500 dark:text-neutral-300">
+                      <p className="text-neutral-500">
                         {choreason2.description}
                       </p>
                     </div>
@@ -262,7 +256,7 @@ const CholesterolPage = () => {
                       <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
                     </a>
                   </div>
-                  <div className="p-6 text-surface dark:text-white">
+                  <div className="p-6 text-surface">
                     <h5 className="mb-2 text-xl font-medium leading-tight">
                       {chobetter.label}
                     </h5>

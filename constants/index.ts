@@ -299,11 +299,11 @@ export const obeselist = [
 ];
 
 export const obeselist2 = [
-  { label: "健康飲食計劃和定期體能鍛煉" },
-  { label: "改變⽣活習慣" },
-  { label: "體重管理計劃" },
-  { label: "減肥藥" },
-  { label: "體內減肥裝置" },
-  { label: "減肥手術" },
-  { label: "特殊飲食" },
+  { label: "健康飲食計劃和定期體能鍛煉", link: "#section02" },
+  { label: "改變⽣活習慣", link: "#section02" },
+  { label: "體重管理計劃", link: "#section03" },
+  { label: "減肥藥", link: "#section04" },
+  { label: "體內減肥裝置", link: "#section04" },
+  { label: "減肥手術", link: "#section04" },
+  { label: "特殊飲食", link: "#section05" },
 ];
