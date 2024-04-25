@@ -108,7 +108,10 @@ const SmokePage = () => {
         <div className="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
           <h1 className="text-5xl font-bold leading-none text-center">
             戒煙一年後 患上冠心病的機率比吸煙者將會
-            <span className="text-red-400 font-bold">減半</span>
+            <span className="text-red-400 font-bold">
+              <br />
+              減半
+            </span>
           </h1>
         </div>
       </section>

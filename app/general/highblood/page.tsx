@@ -26,38 +26,36 @@ const HighBloodPressurePage = () => {
         }
         backgroundImage={"/bg-highblood.jpg"}
       />
-      <section className="border-t border-gray-200 bg-gray-50">
-        <MaxWidthWrapper className="py-20">
-          <div className="grid grid-flow-col justify-stretchgap-y-12 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
-            {perks.map((perk) => (
-              <div
-                key={perk.name}
-                className="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
-              >
-                <div className="md:flex-shrink-0 flex justify-center">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-100 text-blue-900">
-                    {<perk.Icon className="w-1/2 h-1/2" />}
-                  </div>
-                </div>
-
-                <div className="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
-                  <h3 className="text-base font-medium text-gray-900">
-                    {perk.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    {perk.description}
+      <section className="mb-32">
+        <div className="container my-24 mx-auto md:px-6">
+          <div className="block rounded-lg bg-white shadow-2xl">
+            <div className="flex flex-wrap items-center">
+              <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
+                <img
+                  src="/highblood/heart1.jpg"
+                  alt=""
+                  className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
+                />
+              </div>
+              <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
+                <div className="px-6 py-12 md:px-12">
+                  <h2>甚麼是⾎壓?</h2>
+                  <p className="mb-6 text-neutral-500">
+                    ⾎壓是當⼼臟收縮時將血液泵⼊血管所加諸⾎管壁的壓⼒。我們需要維持正常的⾎壓，推動⾎液在體內運⾏，才能把氧氣和營養輸送到⾝體各組織。
+                    <br />
+                    <br />
+                    ⾎壓可以利⽤⾎壓計量度出來，一般以毫⽶水銀柱(mmHg)
+                    為單位。血壓度數由兩個數字組成，前者
+                    (收縮壓/上壓)代表心臟收縮泵⾎時加諸血管壁的壓⼒，⽽後者(舒張壓/下壓)則代表兩下⼼跳之間⼼臟放鬆時⾎管壁所承受的壓⼒。
+                    <br />
+                    <br />
+                    正常⾎壓並不固定，會隨著時間有所變化，亦會受情緒的起伏和不同程度的體能活動影響。舉例說，在⽣氣或焦慮時，⾎壓會上升;⽽休息或入睡時，血壓則會下降。
                   </p>
                 </div>
               </div>
-            ))}
-            <Image
-              src="/bigbelly.png"
-              width={400}
-              height={400}
-              alt="Big belly"
-            />
+            </div>
           </div>
-        </MaxWidthWrapper>
+        </div>
       </section>
     </>
   );
