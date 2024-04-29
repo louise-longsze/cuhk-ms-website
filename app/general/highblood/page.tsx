@@ -513,7 +513,7 @@ const HighBloodPressurePage = () => {
                     患高血壓的事實，不會因你拒絕服藥而改變。但是，若不依照醫生的指示服藥的話，會大大增加出現併發症或縮短壽命的機會。
                   </td>
                 </tr>
-                <tr className="bg-blue-600 border-blue-40">
+                <tr className="bg-blue-600">
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap"

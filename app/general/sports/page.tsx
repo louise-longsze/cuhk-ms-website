@@ -19,7 +19,7 @@ const SportsPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-between items-center">
             <h2>運動</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 運動種類可因應⾝體能⼒和個⼈興趣而定。進⾏中度或強度的帶氧運動已⾜夠增加⽇常的活動量。你亦可諮詢醫護⼈員的專業意⾒，訂⽴個⼈的運動計劃。
                 <br />
@@ -80,7 +80,7 @@ const SportsPage = () => {
             </div>
           </div>
           <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl">
-            <div className="justify-center items-center px-24 m-5">
+            <div className="justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 以下是一些運動建議給你參考，你可選擇⼀些感興趣或其他，因應⾃己的健康情況和體能作出選擇和調節:
               </p>
@@ -101,11 +101,8 @@ const SportsPage = () => {
           <div className="container mx-auto flex flex-col p-6">
             {sportssteps.map((step, index) => {
               return (
-                <div className="divide-y">
-                  <div
-                    className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100"
-                    key={index}
-                  >
+                <div className="divide-y" key={index}>
+                  <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
                     <div className="flex items-center justify-center lg:col-span-1 col-span-full">
                       <svg
                         viewBox="0 0 512 512"
@@ -168,7 +165,7 @@ const SportsPage = () => {
                     <div className="flex flex-wrap items-center">
                       <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img
-                          src="/obese/tab1.jpg"
+                          src="/sports/tab1.jpg"
                           alt=""
                           className="w-full rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg"
                         />
@@ -191,7 +188,7 @@ const SportsPage = () => {
                     <div className="flex flex-wrap items-center">
                       <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img
-                          src="/obese/tab2.jpg"
+                          src="/sports/tab2.jpg"
                           alt=""
                           className="w-full rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg"
                         />
@@ -214,7 +211,7 @@ const SportsPage = () => {
                     <div className="flex flex-wrap items-center">
                       <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img
-                          src="/obese/tab3.jpg"
+                          src="/sports/tab3.jpg"
                           alt=""
                           className="w-full rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg"
                         />
@@ -226,9 +223,9 @@ const SportsPage = () => {
                             如果你以前很少運動，請根據⾃己的狀況，循序漸進的安排運動。否則，運動早期的疲憊和肌⾁酸疼會影響堅持運動的信心。⽐如做⼀個運動計劃:
                             <br />
                             <br />
-                            第一周:快走30分鐘，運動3天;
+                            第一周:快走30分鐘，運動3天；
                             <br />
-                            第二週:快走30分鐘，運動4天;
+                            第二週:快走30分鐘，運動4天；
                             <br />
                             第三週:快走30分鐘，運動5天， 逐步增加運動量和強度。
                           </p>
@@ -244,25 +241,16 @@ const SportsPage = () => {
                     <div className="flex flex-wrap items-center">
                       <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img
-                          src="/obese/tab4.jpg"
+                          src="/sports/tab4.jpg"
                           alt=""
                           className="w-full rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg"
                         />
                       </div>
                       <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
                         <div className="px-6 py-12 md:px-12">
-                          <h2>素食(Vegetarian Diet)</h2>
+                          <h2>⽀持原則</h2>
                           <p className="mb-6 text-neutral-500">
-                            素⾷通常被稱為飲⾷習慣，其中以植物為主要食物來源，並且排除了⼤部分或全部肉，內臟和動物產品。素⾷飲⾷可分為以下幾種:
-                            <br />
-                            <br />•
-                            乳卵素⾷飲食:一種飲食，不包括雞蛋和奶製品除外的所有動物產品。
-                            <br />•
-                            卵素⾷飲食:不包括雞蛋在內的所有動物和奶製品的飲食。
-                            <br />•
-                            乳素⾷飲⾷:不包括乳製品在內的所有雞蛋和動物產品的飲⾷。
-                            <br />•
-                            嚴格的素⾷飲⾷:不包括所有雞蛋，乳製品，⾁，內臟和動物源性食品(如蜂蜜和燕窩)的飲食。
+                            ⼀個⼈鍛煉很難長期堅持。請盡量選擇集體運動項目，如公園、廣場或者⼩區裡⾯組織的活動，如跳舞、太極拳、⾨球、⽻⽑球、乒乓球、瑜伽等;也可以在鄰居或者朋友中找一個或者多個夥伴，結伴進行運動。至少應該贏得家⼈朋友的⽀持，督促提醒你進行運動。請記住:⼈際⽀持是堅持運動的有效⽅法。
                           </p>
                         </div>
                       </div>
@@ -276,18 +264,16 @@ const SportsPage = () => {
                     <div className="flex flex-wrap items-center">
                       <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img
-                          src="/obese/tab5b.jpg"
+                          src="/sports/tab5.jpg"
                           alt=""
                           className="w-full rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg"
                         />
                       </div>
                       <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
                         <div className="px-6 py-12 md:px-12">
-                          <h2>Ornish飲⾷ (Ornish Diet)</h2>
+                          <h2>多樣原則</h2>
                           <p className="mb-6 text-neutral-500">
-                            是限制飲食中的脂肪，精製碳⽔化合物和動物蛋白。Ornish
-                            Diet
-                            不僅是飲⾷食法，它還強調運動，壓⼒管理和⼈際關係。例如，在營養方⾯，Ornish將食物分為五類，從最健康(第一組)到最少健康(第五組)。例如，全⿆麵包和餅乾之間，⼤⾖熱狗與豬肉或⽜⾁之間的區別就在於此。
+                            為避免興趣的減退，可以選擇多種運動⽅式，變換花樣進行鍛煉。
                           </p>
                         </div>
                       </div>
@@ -301,18 +287,23 @@ const SportsPage = () => {
                     <div className="flex flex-wrap items-center">
                       <div className="w-2/3 shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
                         <img
-                          src="/obese/tab5b.jpg"
+                          src="/sports/tab6.jpg"
                           alt=""
                           className="w-full rounded-tl-lg lg:rounded-tr-none lg:rounded-bl-lg"
                         />
                       </div>
                       <div className="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
                         <div className="px-6 py-12 md:px-12">
-                          <h2>Ornish飲⾷ (Ornish Diet)</h2>
+                          <h2>固定原則</h2>
                           <p className="mb-6 text-neutral-500">
-                            是限制飲食中的脂肪，精製碳⽔化合物和動物蛋白。Ornish
-                            Diet
-                            不僅是飲⾷食法，它還強調運動，壓⼒管理和⼈際關係。例如，在營養方⾯，Ornish將食物分為五類，從最健康(第一組)到最少健康(第五組)。例如，全⿆麵包和餅乾之間，⼤⾖熱狗與豬肉或⽜⾁之間的區別就在於此。
+                            請每天安排固定的時間做運動，並保持下來。持之以恆才可以將運動融入⽇常⽣活的一部分。運動要每週3-5次;每次40分鐘。因應⾃己的健康情況和體能作出調節:
+                            <br />
+                            <br />
+                            ⇒首先，做⼤概5分鐘的熱身/伸展運動。
+                            <br />
+                            ⇒然後，步行⼤概30分鐘。
+                            <br />
+                            ⇒最後，做⼤概5分鐘的緩和運動。
                           </p>
                         </div>
                       </div>
@@ -321,6 +312,73 @@ const SportsPage = () => {
                 </div>
               </TabsContent>
             </Tabs>
+          </div>
+        </MaxWidthWrapper>
+      </section>
+      <section>
+        <MaxWidthWrapper>
+          <div className="flex flex-col justify-between items-center">
+            <h2>伸展運動及熱身運動</h2>
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
+              <p>
+                伸展運動及熱身運動是重要的。做⼤概5-10分鐘，主要是以拉長肌肉增加⾝體的柔軟性，並且預防肌肉損傷的發⽣︒除此之外，也可以幫助降低運動後⾝體緊繃感，加速解除疲勞。伸展可分為動態式伸展與靜態式伸展。每⼀個伸展的動作靜止時最少應持續8-10秒以上才能夠有效果。每個動作做1-2次
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="w-1/2">
+              <img src="/sports/stretch1.png" alt="" className="w-full" />
+            </div>
+            <div className="w-1/2 flex flex-col px-4 lg:px-24 m-5">
+              <h4>頭部及頸部</h4>
+              <p>
+                • 眼向前望，慢慢將頭向右轉，然後向左轉
+                <br />• 眼向前望，慢慢將頭向右側，然後向左側
+                <br />• 眼向前望，將下顎慢慢向後推。頭頸伸展，前後左右伸展兩次
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="w-1/2 flex flex-col px-4 lg:px-24 m-5">
+              <h4>上肢</h4>
+              <p>
+                • 肩膊向上縮起，再向下壓低，然後向前移，再向後移
+                <br />•
+                舉⾼右⼿伸向左肩，用左⼿將右踭拉向⾃己的方向，直⾄右肩有拉緊的感覺，然後轉換左⼿重複動作
+                <br />•
+                右⼿屈曲放在頭後，左手輕力將右⼿手踭向左拉，然後轉換左手，重複動作
+                <br />•
+                雙⼿互握放在頸後，然後慢慢分開⼿肘，直至與兩肩成⼀直線，鬆鬆肩膊和上肢
+              </p>
+            </div>
+            <div className="w-1/2">
+              <img src="/sports/stretch2.png" alt="" className="w-full" />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center pt-4">
+            <div className="w-2/3">
+              <img src="/sports/stretch3.png" alt="" className="w-full" />
+            </div>
+            <div className="w-full flex flex-col px-4 lg:px-24 m-5 justify-center items-center">
+              <h4>身軀</h4>
+              <p>
+                • 雙⼿垂直放於⾝旁，慢慢將⾝體向右側下彎，然後再向左側下
+                <br />• 雙⼿環抱胸前，慢慢將身體向右轉，靜止，再向左轉，靜⽌
+                <br />• 轉轉腰，彎彎腰
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center pt-4">
+            <div className="w-2/3">
+              <img src="/sports/stretch4.png" alt="" className="w-full" />
+            </div>
+            <div className="w-full flex flex-col px-4 lg:px-24 m-5 justify-center items-center">
+              <h4>下肢</h4>
+              <p>
+                • 雙手抓緊椅背，作弓箭步，後腿伸直，靜止，然後轉腿
+                <br /> • 鬆鬆⼿腳，踢踢小腿
+              </p>
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>

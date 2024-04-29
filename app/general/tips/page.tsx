@@ -43,7 +43,7 @@ const TipsPage = () => {
             <div className="w-full mx-auto">
               <div className="flex flex-col justify-center items-center">
                 <h2>感到❤️情低落?</h2>
-                <div className="px-24 m-5">
+                <div className="px-4 lg:px-24 m-5">
                   <p>
                     有些⼈在得知有心臟病後會感到憂愁的。這些感受同時比別⼈特別敏感的。亦有些⼈會出現傷心，對事物失去興趣，⾷慾下降。更甚者會有想哭的感覺，甚⾄感到憂鬱。
                     <br />
@@ -115,7 +115,7 @@ const TipsPage = () => {
           </div>
         </div>
         <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl">
-          <div className="justify-center items-center px-24 m-5">
+          <div className="justify-center items-center px-4 lg:px-24 m-5">
             <p>
               如果您在承受壓力或遭受創傷時傾向於關閉身體，那麼減輕壓力的活動可能會特別有幫助。如果令你開心的事情就只有吸煙、酗酒，不做運動，吃膩的⾷物和做一些令你⼗分疲倦的事情的話-那怪不得你有⼼臟病了!你應該找其它的東西去代替這些事了。
               <br />

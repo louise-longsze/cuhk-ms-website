@@ -14,7 +14,7 @@ const SmokePage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-between items-center">
             <h2>吸煙和二⼿煙是⼼血管疾病已知的⾵險因素</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center 5">
               <p>
                 吸煙和二手煙對健康構成極大的危害，不少致命疾病與吸煙有關，包括⼼臟病、腦⾎管疾病、下呼吸道感染、慢性阻塞性肺病、肺結核及氣管、支氣管和肺癌。吸煙可引致⼼血管疾病，包括冠⼼病、中風、主動脈瘤及周圍⾎管疾病等。
                 <br />
@@ -95,7 +95,7 @@ const SmokePage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-between items-center">
             <h2>如果你想戒煙的話</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 無論你吸了多少年或多少枝煙，戒煙都有好處，戒煙後不久，與吸煙相關的冠⼼病風險就會開始減少，
                 並且戒煙愈久，這種風險通常會繼續降低。
@@ -150,7 +150,7 @@ const SmokePage = () => {
       </section>
       <section>
         <MaxWidthWrapper>
-          <div className="flex flex-col justify-center items-center px-24 m-5">
+          <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
             <h2>對抗煙癮提示</h2>
           </div>
           <div className="flex flex-col justify-center items-center md:grid md:grid-cols-5 gap-3">
