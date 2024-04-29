@@ -1,6 +1,6 @@
 import MaxWidthWrapper from "@/components/maxwidthwrapper";
 import HeroSection from "@/components/shared/hero";
-import { dietlist1, diettable } from "@/constants";
+import { dietlist1, diettable, nutlist } from "@/constants";
 import { TiTick, TiTimes } from "react-icons/ti";
 
 import {
@@ -638,16 +638,58 @@ const DietPage = () => {
               </p>
             </div>
             <h4>其中對我們健康相關的幾個指標有:</h4>
-            <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                <AccordionContent>
-                  Yes. It adheres to the WAI-ARIA design pattern.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            {nutlist.map((nut, index) => {
+              return (
+                <Accordion type="single" collapsible key={index}>
+                  <AccordionItem value={nut.item}>
+                    <AccordionTrigger className="p-bold-20">
+                      {nut.trigger}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-lg">
+                      {nut.content}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              );
+            })}
+            <div className="lg:px-24 px-4 m-5">
+              <p>
+                營養標籤的最後⼀欄通常是NRV%，指能量或營養成分含量佔相應營養素參考值(NRV)的百分⽐。比如某奶粉100克，其蛋白質含量的NRV%是28%，也就是說吃100克奶粉，可以滿⾜人體一天對蛋白質標準需求的28%。有的方便麵鈉的NRV%在90%以上，說明極端⾼鈉，那麼這⼀天就別再吃什麼含鹽⾷品了。{" "}
+              </p>
+            </div>
           </div>
         </MaxWidthWrapper>
+      </section>
+      <section>
+        <div className="flex flex-col justify-center items-center">
+          <h4>其他注意事項:</h4>
+        </div>
+        <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl">
+          <div className="flex flex-col w-full py-6">
+            <div className="bg-gradient-to-tr from-slate-500 to-stone-500 relative w-full h-full max-w-full overflow-hidden">
+              <img
+                className="mix-blend-overlay absolute inset-0 w-full h-full object-cover"
+                src="/diet/tri.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center px-5 m-5">
+            <p>
+              <br />
+              <br />
+              ⇒要看清營養素含量的單位，有的是100克，有的是⼀瓶、一包。比如薯片能量太⾼，企業⾃己看著都不順眼，就標小包裝的量25克，消費者最好都以每100克食品所含量為準，以作出比較。
+              <br />
+              <br />
+              ⇒如果要⾖類或奶製品，如⾖漿、⽜奶等，⾸先看每100克裡蛋白質含量多少，然後看脂肪含量，請選擇蛋白質含量⾼，同時脂肪含量低的。
+              <br />
+              <br />
+              ⇒如果想吃零食⼜不想長胖，那就對⽐一下每100克的脂肪和能量的量，誰低就買誰。
+              <br />
+              <br />
+            </p>
+          </div>
+        </div>
       </section>
     </>
   );
