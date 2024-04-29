@@ -57,7 +57,7 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>膽固醇的種類</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 膽固醇是由蛋⽩質攜帶在您的⾎液中的，當膽固醇和蛋⽩質結合時，它們稱為脂蛋白︒膽固醇有兩種主要類型。⾼密度脂蛋⽩或
                 HDL
@@ -141,7 +141,7 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>什麼會導致⾼膽固醇?</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 沒有單⼀原因導致高膽固醇的，但是有⼀些可控制的危險因素(例如:吸煙)。另外還有不可控制的危險因素(例如年齡)。
               </p>
@@ -153,7 +153,7 @@ const CholesterolPage = () => {
                       <div className="mb-6 inline-block rounded-full bg-blue-100 p-4 text-primary shadow-sm">
                         <TiTick className="w-8 h-8" />
                       </div>
-                      <h5 className="mb-4 text-lg font-bold">
+                      <h5 className="mb-4 text-2xl font-bold">
                         {choreason.item}
                       </h5>
                       <p className="text-neutral-500">
@@ -171,7 +171,7 @@ const CholesterolPage = () => {
                       <div className="mb-6 inline-block rounded-full bg-red-100 p-4 text-red-400 shadow-sm">
                         <TiTimes className="w-8 h-8" />
                       </div>
-                      <h5 className="mb-4 text-lg font-bold">
+                      <h5 className="mb-4 text-2xl font-bold">
                         {choreason2.item}
                       </h5>
                       <p className="text-neutral-500">
@@ -192,7 +192,7 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>膽固醇如何測量?</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 膽固醇通過稱為脂質組或脂質譜的血液測試進行測量，也可用簡單的血液測試來測量，醫生或執業護⼠通常會通過刺破⼿指來採集⾎液樣本。若在醫院或化驗所進⾏血液檢查，膽固醇測試通常涉及從手臂的靜脈抽血。然後檢查血液中的好膽固醇(HDL)，壞膽固醇(非
                 HDL)，三酸甘油脂，
@@ -209,7 +209,7 @@ const CholesterolPage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>如何解讀您的膽固醇結果?</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 膽固醇和三酸甘油脂的單位為毫摩爾/升血液，通常縮寫為“mmol/L”。沒有特定的目標膽固醇水平，因為您的醫⽣會依據年齡和家族病史等因素研究您罹患心臓病和循環系統疾病的總體⾵險⽽有所不同，因此請諮詢您的醫⽣，哪種⽔平最適合您。
                 <br />
@@ -270,7 +270,7 @@ const CholesterolPage = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
             <h4>高膽固醇的藥物和治療</h4>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 如果您的膽固醇很高，並且生活⽅式改變不夠，醫⽣可能建議您通過藥物控制膽固醇。他汀類藥物是用於降低膽固醇的主要藥物。醫⽣會告知您是否需要服用其他有助於控制膽固醇水平的藥物。
               </p>

@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { IoFemale, IoMale } from "react-icons/io5";
 import Link from "next/link";
 import MaxWidthWrapper from "@/components/maxwidthwrapper";
@@ -192,7 +191,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 代謝症候群可以增加心血管疾病、中風和糖尿病等疾病的風險。高三酸甘油酯、高膽固醇和高血壓可以損害血管壁，增加動脈粥樣硬化的風險。高空腹血糖可以導致胰島素阻力和糖尿病的發生。
                 <br />

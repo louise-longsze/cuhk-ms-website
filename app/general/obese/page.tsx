@@ -19,7 +19,7 @@ const ObesePage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>肥胖與罹患心⾎管疾病</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
                 肥胖與罹患心⾎管疾病，尤其是⼼力衰竭和冠⼼病的⾵險增加有關。脂肪組織本⾝產⽣的促炎細胞因子可誘發⼼臟功能障礙並促進動脈粥樣硬化斑塊的形成。肥胖和超重也與⾼⾎壓和左⼼室增⼤(左⼼室肥大)有關，增加了⼼力衰竭的風險。此外，超重和肥胖可能與某些癌症，膽囊疾病和⾻關節炎亦有關。
               </p>
@@ -171,7 +171,7 @@ const ObesePage = () => {
         <MaxWidthWrapper>
           <div className="flex flex-col justify-center items-center">
             <h2>您的⾵險增加了嗎?</h2>
-            <div className="flex flex-col justify-center items-center px-24 m-5">
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <h4>
                 為了確定體重是否與增加患⼼臟病的風險有關，使⽤了兩種測量方法:
               </h4>

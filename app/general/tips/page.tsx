@@ -26,7 +26,7 @@ const TipsPage = () => {
           <div className="flex flex-col justify-between items-center">
             <h2>壓力與放鬆</h2>
             <div className="mx-auto p-6">
-              <div className="flex flex-col justify-center items-center px-24 m-5">
+              <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
                 <p>
                   當我們的壓力指數上升時，我們體內的腎上腺素也不斷上升。腎上腺素是一種十分有用的化學物質，可以令我們清醒，幫助我們怎樣處理問題。如果腎上腺素上升的話，我們的情緒會由輕鬆的狀態轉移⾄興奮狀態，如果腎上腺素上升得過多的話，我們會覺得緊張，脾氣差，疲倦，感到有壓力，飽肚等的感覺。適量的壓力可以是一種正面的動⼒，但若不懂得去舒壓就會形成一種負能量，對身體健康會有害。如果我們長期在壓⼒下，我們⾝體的抵抗力都會降低。美國心臟協會認為壓力是引致⼼臟病的其中⼀個危險因素。所以當壓⼒開始上升時，要學習如何找出問題所在。
                 </p>
@@ -53,7 +53,7 @@ const TipsPage = () => {
                 </div>
                 <h4>憂鬱的症狀包括</h4>
               </div>
-              <div className="grid grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {sadsymptoms.map((symptoms, index) => {
                   return (
                     <div
@@ -94,7 +94,7 @@ const TipsPage = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-4 pl-2 items-center space-x-2 justify-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 pl-2 items-center space-x-2 justify-center">
             {pressurelist.map((pressure, index) => {
               return (
                 <div

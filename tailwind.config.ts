@@ -25,6 +25,12 @@ const config = {
         80: "80%",
         90: "90%",
       },
+      height: {
+        110: "440px",
+        120: "480px",
+        150: "600px",
+        200: "800px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
