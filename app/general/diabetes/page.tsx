@@ -1,10 +1,21 @@
 import MaxWidthWrapper from "@/components/maxwidthwrapper";
 import HeroSection from "@/components/shared/hero";
-import { factsvg, rumorsvg } from "@/constants";
+import {
+  factsvg,
+  p1svg,
+  p2svg,
+  p3svg,
+  p4svg,
+  p5svg,
+  p6svg,
+  p7svg,
+  rumorsvg,
+} from "@/constants";
 import { GiAbstract089, GiKidneys } from "react-icons/gi";
 import { RiVirusFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa6";
 import { GoHeartFill } from "react-icons/go";
+import { Separator } from "@/components/ui/separator";
 
 const DiabetesPage = () => {
   return (
@@ -158,7 +169,7 @@ const DiabetesPage = () => {
             <h2>如何得知血糖控制情況？</h2>
           </div>
         </MaxWidthWrapper>
-        <div className="container mx-auto text-center lg:text-left xl:px-16 mt-24 px-6">
+        <div className="container mx-auto text-center lg:text-left xl:px-16 mb-24 px-6">
           <div className="flex items-center lg:grid lg:grid-cols-2">
             <div className="mb-12 lg:mb-0">
               <div className="relative z-[1] block rounded-lg bg-slate-100 px-6 py-12 shadow-2xl backdrop-blur-[30px] md:px-12 lg:-mr-14">
@@ -191,6 +202,445 @@ const DiabetesPage = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <MaxWidthWrapper>
+          <div className="flex flex-col justify-between items-center">
+            <h2>應如何控制糖尿病？</h2>
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
+              <p className="indent-80">
+                病人的參與和自我監察，對有效護理糖尿病至為重要。提升對糖尿病的認識和控制技巧，便更能夠掌握本身的健康狀況。所以病人需要：
+                <br />• 認識糖尿病的特質
+                <br />• 維持健康生活方式
+                <br />• 保持理想的體重
+                <br />• 了解血糖控制不善可引致併發病如腎臟病變，糖尿眼疾等
+                <br />• 遵照醫生指示服藥或注射胰島素
+                <br />• 請醫生解釋不同治療方法和藥物可能引起的副作用
+                <br />•
+                與家庭醫生及其他醫療專業人員成為健康合作夥伴，以訂下切合你個人需要的治療方案
+              </p>
+            </div>
+          </div>
+          <div className="container mx-auto space-y-12">
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+              <img
+                src="/diabetes/action1.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">定期到家庭醫生覆診</h3>
+                <p className="mt-6">
+                  •
+                  與你的家庭醫生共同訂定目標治療水平，如血糖水平、血壓水平、血脂水平及體重指標
+                  <br />•
+                  每年接受身體檢查以評估身體狀况及有否出現併發症。建議檢查項目包括︰
+                  <div className="indent--12 ml-12">
+                    o 體重指標及腰圍
+                    <br />o 血壓
+                    <br />o 血糖
+                    <br />o 血脂
+                    <br />o 腎功能檢查（包括尿液蛋白檢查）
+                    <br />o 眼部檢查
+                    <br />o 足部檢查
+                    <br />o 口腔檢查
+                  </div>
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+              <img
+                src="/diabetes/action2.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">
+                  養成健康飲食習慣 及遵從醫生或營養師建議的
+                  飲食餐單以達致有效體重管理
+                </h3>
+                <p className="my-6 ">
+                  • 定時定量進食
+                  <div className="indent-12">
+                    o 避免過飢或過飽，以維持穩定的血糖水平
+                  </div>
+                  <br />• 維持均衡及多元化飲食
+                  <div className="indent-12">
+                    o 應多元化及適量地進食五穀類、蔬菜、水果、
+                    肉類和奶類食物，並減少進食含高脂肪、高糖分和高鹽分的食物
+                  </div>
+                  <br />• 多吃含高纖維素的食物
+                  <div className="indent-12">
+                    o
+                    多進食含高纖維素的食物，包括麥皮、全麥麵包、乾豆、蔬菜及水果
+                  </div>
+                  <br />• 選用健康煮食方法
+                  <div className="indent--12 ml-12">
+                    o 採用低脂肪的煮食方法包括白灼、蒸、炆、燉、焗和少油快炒
+                    <br />o 避免採用煎、炸和多油炒等高脂肪的烹調方法
+                    <br />o
+                    烹調肉類或家禽時，先將肥膏和皮層去掉，以減低脂肪的攝取
+                    <br />o
+                    多選用天然調味料如薑、葱、蒜頭、胡椒粉、果皮等。避免選用大量含糖分的調味料如砂糖、海鮮醬、茄汁等
+                    <br />o 生粉含高醣質，所以烹調時應減少用作「打獻」
+                  </div>
+                  <br />• 適量進食含醣質 ( 如澱粉質、果糖和乳糖 ) 的食物
+                  <div className="indent--12 ml-12">
+                    o
+                    食物所含的醣質會影響血糖的水平，因此必須適量地分配於每日的飲食中，以維持血糖的穩定。在進食含醣質的食物時，可運用「醣質交換法」(
+                    參考附頁 ) 來進行換算
+                    <br />o
+                    含高醣質的食物包括五穀類、根莖類蔬菜、乾豆類、水果類及奶類
+                    <br />o
+                    患者一般每天可吃兩份水果。一份水果相等於一個細橙、或一個細雪梨、或一個奇異果。患者可按自己的喜好每天進食合適的份量
+                    <br />o
+                    只要懂得使用「醣質交換法」，及用代糖來調味，糖尿病患者亦可以吃甜品。例如若吃了含有高醣質的材料如番薯、紅豆等，便要運用「醣質交換法」減少飯的進食份量，來避免進食過多醣質，以達致血糖的控制
+                    <br />o 如對「醣質交換法」有疑問，可諮詢醫護人員或營養師
+                  </div>
+                  <br />• 採用合適的餐單
+                  <div className="indent--12 ml-12">
+                    o
+                    每個人所需的營養和份量都不同，所以糖尿病患者宜諮詢醫護人員的意見，不應跟隨其他患者的餐單
+                    <br />o 留意營養標籤中的脂肪、鈉 ( 或鹽 )
+                    和糖分的含量指示，選擇含較低脂肪、低鈉 ( 或鹽
+                    )和低糖分的食物
+                  </div>
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+              <img
+                src="/diabetes/action3.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">進行恆常體能活動</h3>
+                <p className="mt-6">
+                  • 每周最好至少 3 天進行中等 ( 例如急步行 )
+                  或劇烈強度的帶氧體能運動，以達至每周累積最少 150分鐘的目標
+                  <br />• 帶氧體能活動可以最少每次做 10 分鐘的方式來累積進行
+                  <br />• 每周至少 2 天 ( 非連續的 ) 進行肌肉強化活動
+                  <br />•
+                  若想獲取更多運動建議及資訊，可請教專業人士，或瀏覽衞生署運動處方網站
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+              <img
+                src="/diabetes/action4.jpg"
+                alt=""
+                className="h-120 object-cover object-bottom aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">不吸煙</h3>
+                <p className="my-6 ">
+                  • 非吸煙者切勿嘗試吸煙，而吸煙者應立刻戒煙
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+              <img
+                src="/diabetes/action5.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">避免飲酒</h3>
+                <p className="mt-6">
+                  •
+                  酒精飲品可引致多種疾病，過量飲酒不但嚴重影響個人的生理健康，更會影響心理健康、社交健康和工作表現，因此應該遠離酒精。若選擇飲用酒精飲品，應多加節制以盡量減少與酒精相關的危害。
+                  <br />
+                  建議:
+                  <div className="indent--12 ml-12">
+                    o 男性每天不應飲多於 2 個標準酒量
+                    <br />o 女性則不多於 1 個標準酒量
+                    <br />o 一個標準酒量單位 (10克純酒精) 相等於 :
+                  </div>
+                  <div className="indent--24 ml-24">
+                    <br /> 約 250 毫升 ) 含 5% 酒精的啤酒
+                    <br /> 一小杯 (100 毫升 ) 含 12% 酒精的葡萄酒
+                    <br /> 一杯酒吧標準容器 (30 毫升 ) 含 40% 酒精的烈酒
+                  </div>
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+              <img
+                src="/diabetes/action6a.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">控製血糖</h3>
+                <p className="my-6 ">
+                  • 養成健康的飲食習慣及生活模式
+                  <br />• 定時檢測血糖水平作為治療參考
+                  <br />• 有需要時接受藥物治療
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+              <img
+                src="/diabetes/action7.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">控制血壓</h3>
+                <p className="mt-6">
+                  • 保持目標血壓低於 130/80mmHg，可減低患上併發症的風險
+                  <br />• 每次糖尿病例行檢查時均應量度血壓 <br />•
+                  保持健康的飲食習慣及生活模式，有需要時接受藥物治療，有助控制血壓於理想水平，延緩及預防併發症的出現
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+              <img
+                src="/diabetes/action8.jpg"
+                alt=""
+                className="h-120 object-cover object-bottom aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">控制血脂</h3>
+                <p className="my-6 ">
+                  •
+                  血脂主要是由三酸甘油脂及膽固醇組成。血脂異常是指血液中三酸甘油脂或血脂蛋白濃度異常，是引致心血管疾病的主要風險因素
+                  <br />• 保持健康的飲食習慣及恆常運動，維持低密度脂蛋白膽固醇
+                  (LDLc) 少於 2.6
+                  度的水平，並在有需要時接受藥物治療，這均有助控制血脂於理想水平
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+              <img
+                src="/diabetes/action9.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">
+                  依從醫護人員指導 服藥或注射胰島素
+                </h3>
+                <p className="mt-6">
+                  • 清楚明白自己服用何種藥物
+                  <br />•
+                  應了解醫生因何處方該種藥物、如何服用及可能出現的副作用；若有不適應立即約見你的家庭醫生聽取意見，切勿自行調校藥量或停服藥物
+                  <br />• 應認識血糖過低的徵狀 (
+                  如出汗、發抖、心跳加速、疲倦、緊張煩躁 ) 及處理方法
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
+              <img
+                src="/diabetes/action10.jpg"
+                alt=""
+                className="h-120 object-cover aspect-square"
+              />
+              <div className="flex flex-col justify-center flex-1 p-6">
+                <h3 className="text-3xl font-bold">接種流感疫苗</h3>
+                <p className="my-6 ">
+                  •
+                  每年接種流感疫苗，因糖尿病患者因流感而產生併發症及死亡風險較高
+                </p>
+              </div>
+            </div>
+          </div>
+        </MaxWidthWrapper>
+      </section>
+      <section>
+        <MaxWidthWrapper>
+          <div className="flex flex-col justify-between items-center">
+            <h2>預防糖尿病併發症</h2>
+            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
+              <p>
+                若糖尿病病情控制不善，可導致併發症，影響生活素質甚至危害生命，故應小心預防。
+              </p>
+            </div>
+          </div>
+          <div className="container mx-auto flex flex-col p-6">
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-48 h-48 text-primary"
+                  >
+                    <path d={p1svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">
+                    高血糖昏迷症
+                  </span>
+                  <p>
+                    • 特點是血糖水平超高，可高達 30 度（mmol/L）
+                    <br />•
+                    成因包括：飲食過量、沒有按指示服藥或注射胰島素、生病期間或手術後
+                    <br />•
+                    病徵包括：患者會極度口渴、小便極少、心跳加速，嚴重的會神智不清，甚至昏迷
+                    <br />•
+                    預防方法：遵守控糖飲食原則及運動；按時服用糖尿藥；如發現尿糖或血糖過高，應立即求診
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-44 h-44 text-primary"
+                  >
+                    <path d={p2svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">
+                    低血糖昏迷症
+                  </span>
+                  <p>
+                    • 當血糖低於 4 度（mmol/L）便屬於血糖過低
+                    <br />•
+                    成因包括：運動量與飲食未能配合（如空腹做運動）、不正確服用藥物或過量注射胰島素、空腹飲酒
+                    <br />•
+                    病徵包括：感到十分飢餓、心跳、手震、出汗，嚴重的會昏迷，甚至死亡
+                    <br />•
+                    預防方法：定時定量進食；按照醫生指示的分量依時服藥或注射胰島素；隨身帶備糖果、餅乾等容易吸收的含醣質食物，一旦出現低血糖徵狀，可即時進食
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-44 h-44 text-primary"
+                  >
+                    <path d={p3svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">
+                    糖尿腎病
+                  </span>
+                  <p>
+                    •
+                    長期血糖水平偏高會損害血管，包括腎臟血管，導致腎臟受損，影響腎功能，嚴重的更可導致腎衰竭
+                    <br />• 預防方法：良好的血糖、血脂及血壓控制；不吸煙；
+                    <br />• 恆常運動；及每年進行腎功能包括尿液蛋白檢查
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-44 h-44 text-primary"
+                  >
+                    <path d={p4svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">
+                    糖尿眼疾
+                  </span>
+                  <p>
+                    •
+                    血糖長期過高會損害視網膜上的微絲血管，導致視網膜破壞，嚴重者可引致視網膜脫落、分離，導致失明
+                    <br />•
+                    預防方法：良好的血糖及血壓控制；留意病徵，如視力下降、眼睛疼痛或發炎，應立刻向你的家庭醫生求診；及每年接受眼部檢查，以便及早察覺及治療
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-44 h-44 text-primary"
+                  >
+                    <path d={p5svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">
+                    心血管病及中風
+                  </span>
+                  <p>
+                    •
+                    長期血糖過高會加速血管硬化，當負責供應心臟血液的血管受影響時，便會導致冠心病；當負責供應腦部血液的血管受影響時，便會導致中風
+                    <br />• 預防方法：保持目標血壓低於
+                    130/80mmHg；良好的血糖及血脂控制；不吸煙；及恆常運動
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-44 h-44 text-primary"
+                  >
+                    <path d={p6svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">糖尿足</span>
+                  <p>
+                    •
+                    長期血糖水平偏高會導致神經末梢病變，造成腳部感覺遲緩，以致不易察覺腳部問題；而血管硬化更會引致腳部血液供應不足，一旦有傷口便難以復原，嚴重的更可導致組織壞死，最後可能要截肢，以保性命
+                    <br />•
+                    預防方法：學習護理足部的知識，每天觀察足部情況，例如皮膚破損或潰瘍；保持足部衞生；注意生活細節，保護雙腳避免受傷；若有任何足部問題應向家庭醫生提出
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+            <div className="divide-y">
+              <div className="grid rounded-md justify-center grid-cols-4 p-8 mx-auto space-y-8 lg:space-y-0 hover:bg-blue-100">
+                <div className="flex items-center justify-center lg:col-span-1 col-span-full">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    className="w-44 h-44 text-primary"
+                  >
+                    <path d={p7svg}></path>
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center max-w-3xl text-center col-span-full lg:col-span-3 lg:text-left">
+                  <span className="text-xl font-bold md:text-3xl">牙周病</span>
+                  <p>
+                    •
+                    血糖控制欠佳會降低抵抗力，增加牙齦受細菌感染的機會，如糖尿病患者未能徹底清潔口腔，令牙菌膜積聚，便會導致牙周病
+                    <br />•
+                    預防方法：早晚用正確方法刷牙，徹底清潔牙齒；選用軟毛牙刷及使用含氟化物牙膏；使用牙線或牙縫刷清潔牙縫；及定期檢查口腔
+                  </p>
+                </div>
+              </div>
+              <Separator />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
+            <p>如有需要，家庭醫生會轉介病人至有關專科接受檢查及治療。</p>
+          </div>
+        </MaxWidthWrapper>
       </section>
       <section>
         <MaxWidthWrapper>
