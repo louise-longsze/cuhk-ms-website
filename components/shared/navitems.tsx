@@ -31,7 +31,7 @@ const NavItems = () => {
               <Link href={"/general/cholesterol"}>膽固醇</Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href={"/general/obese"}>超重或肥</Link>
+              <Link href={"/general/obese"}>超重或肥胖</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

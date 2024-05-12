@@ -37,7 +37,7 @@ export const LandingTable = () => {
           </tr>
           <tr className="border-b border-blue-400">
             <th scope="row" className="px-6 py-4 whitespace-nowrap">
-              高血壓
+              血壓偏高
             </th>
             <td className="px-6 py-4">
               上壓：&#8807; 130mmHg

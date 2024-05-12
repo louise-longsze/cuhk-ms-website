@@ -111,13 +111,6 @@ const DiabetesPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-between items-center">
-            <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
-              <p>
-                由於大部份糖尿病患者可能完全沒有徵狀，因此建議有糖尿病風險的人士，應與家庭醫生商討，以作出合適的檢查，如每三年檢查一次；及視乎風險因素而作出較頻密的檢查，避免延誤診斷或治療。
-              </p>
-            </div>
-          </div>
         </div>
       </section>
       <section>
@@ -208,7 +201,7 @@ const DiabetesPage = () => {
           <div className="flex flex-col justify-between items-center">
             <h2>應如何控制糖尿病？</h2>
             <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
-              <p className="indent-80">
+              <p>
                 病人的參與和自我監察，對有效護理糖尿病至為重要。提升對糖尿病的認識和控制技巧，便更能夠掌握本身的健康狀況。所以病人需要：
                 <br />• 認識糖尿病的特質
                 <br />• 維持健康生活方式

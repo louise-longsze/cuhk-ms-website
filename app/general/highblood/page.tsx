@@ -19,7 +19,7 @@ const HighBloodPressurePage = () => {
       <HeroSection
         title={"高血壓"}
         subtitle={
-          "代謝症候群其中一個重要的可改變風險因素。研究發現，現時已知道代謝症候群有多個風險因素。其中，有八成以上的風險因素是可以改變的。冠⼼病的可改變⾵險因素包括有不良飲⾷習慣, 缺乏運動, 吸煙, 身體過重, 血脂過⾼, ⾼血壓, 菸酒, 和糖尿病。⾼⾎壓是這些因素中重要的⼀項, 因為可增加⼼臟的負荷及會加速動脈粥樣硬化。"
+          "代謝症候群其中一個重要的可改變風險因素。研究發現，現時已知道代謝症候群有多個風險因素。其中，有八成以上的風險因素是可以改變的。代謝症候群的可改變⾵險因素包括有不良飲⾷習慣，缺乏運動，吸煙，身體過重，血脂過⾼，⾼血壓，酗酒，和糖尿病。⾼⾎壓是這些因素中重要的⼀項，因為可增加⼼臟的負荷及會加速動脈粥樣硬化。"
         }
         backgroundImage={"/bg-highblood.jpg"}
       />
@@ -42,7 +42,7 @@ const HighBloodPressurePage = () => {
                     <br />
                     <br />
                     ⾎壓可以利⽤⾎壓計量度出來，一般以毫⽶水銀柱(mmHg)
-                    為單位。血壓度數由兩個數字組成，前者
+                    為單位。血壓度數有兩個數值，前者
                     (收縮壓/上壓)代表心臟收縮泵⾎時加諸血管壁的壓⼒，⽽後者(舒張壓/下壓)則代表兩下⼼跳之間⼼臟放鬆時⾎管壁所承受的壓⼒。
                     <br />
                     <br />
@@ -60,11 +60,14 @@ const HighBloodPressurePage = () => {
             <h2>⾼血壓</h2>
             <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
-                ⾼血壓是指⾎壓持續處於⾼⽔平的一種慢性疾病。⾎壓是當⼼臟收縮，
-                將血液泵入動脈時所加諸動脈⾎管壁的壓⼒︒我們需要維持正常的血壓，推動⾎液在體內運行，把氧氣和營養輸送到⾝體各組織。然⽽，如果⾎壓上升並持續處於⾼水平，便可能會引致嚴重的健康問題，包括中⾵︑冠⼼病及⼼臟衰竭、慢性腎病。
+                ⾼血壓是指⾎壓持續處於⾼⽔平的一種慢性疾病。當⾎壓上升並持續處於⾼水平，便可能會引致嚴重的健康問題，包括中⾵、冠⼼病、⼼臟衰竭、慢性腎病等。
                 在⼀天裡，⾎壓每分鐘都會隨著不同的因素⽽變化，包括⾝體姿勢、體能活動、情緒及睡眠等。
               </p>
-              <h4>以下是美國⼼臟協會針對成年人的⾼⾎壓指引:</h4>
+              <h4>成年人的血壓水平分類及建議跟進行動</h4>
+              <p>
+                根據香港衛生防護中心的指引，若成年人的收縮壓持續處於140
+                mmHg或以上，或舒張壓持續處於90 mmHg或以上，便是患上高血壓。
+              </p>
             </div>
 
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -77,12 +80,11 @@ const HighBloodPressurePage = () => {
                     <th scope="col" className="px-6 py-3 border-4 border-white">
                       收縮墼毫米汞柱mm Hg(在上面的数值)
                     </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 border-4 border-white"
-                    ></th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 border-4 border-white">
                       舒張壂毫米汞柱(mm Hg(在下面的数值)
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      建議的跟進行動
                     </th>
                   </tr>
                 </thead>
@@ -91,61 +93,39 @@ const HighBloodPressurePage = () => {
                     <td scope="row" className="px-6 py-4 whitespace-nowrap">
                       正常
                     </td>
-                    <td className="px-6 py-4 border-4 border-white">不到120</td>
-                    <td className="px-6 py-4 border-4 border-white">及</td>
-                    <td className="px-6 py-4">不到80</td>
+                    <td className="px-6 py-4 border-4 border-white">
+                      {"<"} 120
+                    </td>
+                    <td className="px-6 py-4 border-4 border-white">
+                      {"<"} 80
+                    </td>
+                    <td className="px-6 py-4">兩年內再次檢查</td>
                   </tr>
                   <tr className="bg-amber-300 border-4 border-white">
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-black whitespace-nowrap"
                     >
-                      偏高
+                      前期高血壓
                     </th>
                     <td className="px-6 py-4 border-4 border-white text-black ">
-                      120-129
+                      120 - 139
                     </td>
                     <td className="px-6 py-4 border-4 border-white text-black ">
-                      及
+                      80 - 89
                     </td>
-                    <td className="px-6 py-4 text-black ">不到80</td>
-                  </tr>
-                  <tr className="bg-orange-500 border-4 border-white">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap"
-                    >
-                      高血壓，第一期
-                    </th>
-                    <td className="px-6 py-4 border-4 border-white">130-139</td>
-                    <td className="px-6 py-4 border-4 border-white">或</td>
-                    <td className="px-6 py-4">80-89</td>
+                    <td className="px-6 py-4 text-black ">一年內再次檢查</td>
                   </tr>
                   <tr className="bg-red-600 border-4 border-white">
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap"
                     >
-                      高血墅，第二期
+                      高血壓
                     </th>
-                    <td className="px-6 py-4 border-4 border-white">
-                      140或更高
-                    </td>
-                    <td className="px-6 py-4 border-4 border-white">或</td>
-                    <td className="px-6 py-4">90或更高</td>
-                  </tr>
-                  <tr className="bg-red-800 border-4 border-white">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap"
-                    >
-                      高血堅危險期
-                      <br />
-                      (請立即諮詢您的醫師)
-                    </th>
-                    <td className="px-6 py-4 border-4 border-white">高於180</td>
-                    <td className="px-6 py-4 border-4 border-white">及/或</td>
-                    <td className="px-6 py-4">高於120</td>
+                    <td className="px-6 py-4 border-4 border-white">≥ 140</td>
+                    <td className="px-6 py-4 border-4 border-white">≥ 90</td>
+                    <td className="px-6 py-4">徵詢家庭醫生</td>
                   </tr>
                 </tbody>
               </table>
@@ -166,12 +146,12 @@ const HighBloodPressurePage = () => {
             <h2>⾼血壓</h2>
             <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>
-                根據衞⽣署進⾏的 2014/15 年度⼈口健康調查顯⽰，15-84
+                根據衞⽣署進⾏的 2020/22 年度⼈口健康調查顯⽰，15-84
                 歲人士從⾃述或在⾝體檢查時發現患有⾼血壓的總患病率為 :
               </p>
             </div>
             <CountUp
-              end={27.7}
+              end={29.5}
               suffix="%"
               decimals={1}
               duration={3}
@@ -182,7 +162,7 @@ const HighBloodPressurePage = () => {
             <div className="container mx-auto grid justify-center gap-4 lg:grid-cols-2">
               <div className="flex flex-col justify-center items-center p-4">
                 <CountUp
-                  end={30.1}
+                  end={33.2}
                   suffix="%"
                   decimals={1}
                   duration={3}
@@ -193,7 +173,7 @@ const HighBloodPressurePage = () => {
               </div>
               <div className="flex flex-col items-center p-4">
                 <CountUp
-                  end={25.5}
+                  end={29.5}
                   suffix="%"
                   decimals={1}
                   duration={3}
@@ -204,8 +184,7 @@ const HighBloodPressurePage = () => {
               </div>
             </div>
             <CountUp
-              end={47.5}
-              prefix="其中 "
+              end={12.1}
               suffix="%"
               decimals={1}
               duration={3}
@@ -213,12 +192,12 @@ const HighBloodPressurePage = () => {
               className="text-7xl"
             />
             <h3 className="my-3 text-2xl font-semibold">
-              ⼈口健康調查前未被確診
+              沒有自述病史但在身體檢查時血壓升高
             </h3>
             <div className="flex flex-col justify-center items-center px-4 lg:px-24 m-5">
               <p>⾼血壓的總患病率隨年齡增⾧而持續上升，比例由 15-24 歲的</p>
               <CountUp
-                end={4.5}
+                end={4.9}
                 suffix="%"
                 decimals={1}
                 duration={3}
@@ -230,7 +209,7 @@ const HighBloodPressurePage = () => {
                 上升⾄ 65-84 歲的
               </p>
               <CountUp
-                end={64.8}
+                end={57.4}
                 suffix="%"
                 decimals={1}
                 duration={3}
@@ -540,8 +519,8 @@ const HighBloodPressurePage = () => {
               <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8">
                 <div className="flex justify-center">
                   <img
-                    className="w-96 h-96 object-cover"
-                    src="/highblood/test1.jpg"
+                    className="w-96 h-96 object-cover object-left"
+                    src="/highblood/test3.jpg"
                   ></img>
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 pt-4">

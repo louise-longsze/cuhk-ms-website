@@ -3,16 +3,19 @@
 import { UserInfo } from "@/components/user-info";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import Categories from "../_components/categories";
+import { MapFilterItems } from "../_components/mapfilteritems";
 
-const ClientPage = () => {
+const PlacePage = () => {
   const user = useCurrentUser();
 
   return (
     <>
-      <UserInfo label="📱 Client component" user={user} />
-      <Categories />
+      <div>
+        <p>test if this can show</p>
+      </div>
+      <MapFilterItems />
     </>
   );
 };
 
-export default ClientPage;
+export default PlacePage;
