@@ -7,6 +7,18 @@ import { Toaster } from "@/components/ui/sonner";
 import { Footer } from "@/components/shared/footer";
 import { Navbar } from "@/components/shared/navbar";
 
+import local from "next/font/local";
+
+const dengxian = local({
+  src: [
+    {
+      path: "../public/fonts/Dengl.otf",
+      weight: "500",
+    },
+  ],
+  variable: "--font-dengxian",
+});
+
 export const metadata: Metadata = {
   title: "代謝症候群",
   description: "代謝症候群",
@@ -22,7 +34,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body>
+        <body className={`${dengxian.variable}`}>
           <Toaster />
           <Navbar />
           <main className="bg-slate-100">{children}</main>

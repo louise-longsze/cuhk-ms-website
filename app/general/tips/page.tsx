@@ -117,7 +117,7 @@ const TipsPage = () => {
         <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl">
           <div className="justify-center items-center px-4 lg:px-24 m-5">
             <p>
-              如果您在承受壓力或遭受創傷時傾向於關閉身體，那麼減輕壓力的活動可能會特別有幫助。如果令你開心的事情就只有吸煙、酗酒，不做運動，吃膩的⾷物和做一些令你⼗分疲倦的事情的話-那怪不得你有⼼臟病了!你應該找其它的東西去代替這些事了。
+              如果您在承受壓力或遭受創傷時傾向於關閉身體，那麼減輕壓力的活動可能會特別有幫助。如果令你開心的事情就只有吸煙、酗酒，不做運動，吃膩的⾷物和做一些令你⼗分疲倦的事情的話——那怪不得你有⼼臟病了！你應該找其它的東西去代替這些事了。
               <br />
               <br />
               但如果新的壓⼒源在挑戰您的應對能力，或者⾃我減壓措施仍無法緩解壓力，則可能需要以治療或諮詢的形式尋求幫助。如果您感到不知所措或被困，過度擔心或無法承擔責任時。專業的輔導員或治療師可以幫助您確定壓力的來源並學習新的應對工具。如果你有想傷害⾃己的意念或情況，請盡快尋求醫生診治。
@@ -130,8 +130,8 @@ const TipsPage = () => {
           <div className="flex flex-col justify-center items-center">
             <h2>減壓方法</h2>
           </div>
-          <div className="flex flex-col mx-auto lg:flex-row w-full max-w-screen-2xl justify-center items-center">
-            <div className="justify-center items-center pr-20">
+          <div className="flex mx-auto lg:flex-row w-full max-w-screen-2xl justify-center items-center">
+            <div className="w-1/2 justify-center items-center pr-20">
               {relaxlist.map((relax, index) => {
                 return (
                   <Accordion type="single" collapsible key={index}>
@@ -147,7 +147,7 @@ const TipsPage = () => {
                 );
               })}
             </div>
-            <div className="flex items-center space-x-2 justify-center">
+            <div className="items-center space-x-2 justify-center">
               <Image
                 src={"/tips/tips-questions.jpg"}
                 alt={""}
