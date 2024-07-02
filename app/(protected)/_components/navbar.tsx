@@ -39,6 +39,12 @@ export const Navbar = () => {
         >
           <Link href="/settings">Settings</Link>
         </Button>
+        <Button
+          asChild
+          variant={pathname === "/timerecord" ? "default" : "outline"}
+        >
+          <Link href="/timerecord">活動紀錄</Link>
+        </Button>
       </div>
       <UserButton />
     </nav>
