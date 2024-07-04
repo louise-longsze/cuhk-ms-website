@@ -331,3 +331,12 @@ h4 {
   left: 0;
   /* non-critical styles left out */
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
