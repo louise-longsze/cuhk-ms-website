@@ -14,18 +14,10 @@ const PlacePage = () => {
   const router = useRouter();
   const [places, setPlaces] = useState<Place[]>([]);
 
-  const districtsFilterSet = new Set([
-    ...(params.get("districts")?.split(",").filter(Boolean) || []),
-  ]);
+  const districtFilter = params.get("district") || DISTRICTS[0];
   const facilityFilter = params.get("facility") || "";
 
   useEffect(() => {
-    if (districtsFilterSet.size === 0) {
-      params.set("districts", DISTRICTS[0]);
-      router.push(window.location.pathname + "?" + params.toString());
-      return;
-    }
-
     async function fetchPlaces() {
       let data = await fetch(
         `${process.env.NEXT_PUBLIC_APP_API_URL}/places?${params.toString()}`
@@ -34,16 +26,10 @@ const PlacePage = () => {
       setPlaces(places);
     }
     fetchPlaces();
-  }, [searchParams]);
+  }, [districtFilter]);
 
   const onClickDistrictCheckbox = (district: string) => {
-    const newDistrictSet = new Set(districtsFilterSet);
-    if (districtsFilterSet.has(district)) {
-      newDistrictSet.delete(district);
-    } else {
-      newDistrictSet.add(district);
-    }
-    params.set("districts", Array.from(newDistrictSet).join(","));
+    params.set("district", district);
     router.push(window.location.pathname + "?" + params.toString());
   };
 
@@ -71,7 +57,7 @@ const PlacePage = () => {
             <Checkbox
               key={district}
               label={district}
-              checked={districtsFilterSet.has(district)}
+              checked={districtFilter === district}
               onChange={onClickDistrictCheckbox}
             />
           ))}
@@ -96,7 +82,7 @@ const PlacePage = () => {
         </div>
       )}
       {filteredPlaces.length === 0 && (
-        <div className="w-full px-10 text-center">No results found</div>
+        <div className="w-full px-10 text-center">No results</div>
       )}
     </>
   );
