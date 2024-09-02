@@ -98,3 +98,20 @@ model Activity {
   author       User?        @relation(fields: [authorId], references: [id])
   authorId     String?
 }
+
+enum PlaceStatus {
+  Active
+  Inactive
+  Renovating
+}
+
+model Place {
+  id         String         @id @default(cuid())
+  district   String
+  name       String
+  address    String
+  gov_url    String?
+  facilities String?
+  photo_path String
+  status     PlaceStatus @default(Active)
+}

@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   return (
     <nav className="bg-secondary flex justify-around items-center p-2 w-full shadow-sm">
-      <div className="flex gap-x-2">
+      <div className="flex gap-x-2 max-w-[calc(100vw-200px)] flex-wrap gap-y-2">
         <Button
           asChild
           variant={pathname === "/dashboard" ? "default" : "outline"}
