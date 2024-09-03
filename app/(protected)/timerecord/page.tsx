@@ -14,50 +14,41 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
-const formSchema = z
-  .object({
-    emailAddress: z.string().email(),
-    password: z.string().min(3),
-    passwordConfirm: z.string(),
-    activityType: z.enum(["work", "rest", "sports", "meal", "fun"]),
-  })
-  .refine(
-    (data) => {
-      return data.password === data.passwordConfirm;
-    },
-    {
-      message: "密碼唔啱",
-      path: ["passwordConfirm"],
-    }
-  );
+const formSchema = z.object({
+  datetime: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/g),
+  name: z.string(),
+  details: z.string(),
+  location: z.string().optional(),
+});
 
 const TimeRecordPage = () => {
   const user = useCurrentUser();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      emailAddress: "",
-      password: "",
-      passwordConfirm: "",
-    },
   });
 
-  const submitHandler = (values: z.infer<typeof formSchema>) => {
-    console.log({ values });
+  const submitHandler = async (values: z.infer<typeof formSchema>) => {
+    let timeRecord = await fetch(
+      `${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({...values, datetime: new Date(values.datetime).toISOString()}),
+      }
+    );
+    console.debug('Created', { timeRecord });
   };
+
+  console.log(form.getValues())
 
   return (
     <>
       <div>
-        <p>test if this can show</p>
+        <p>Monthly Schedule</p>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(submitHandler)}
@@ -65,17 +56,13 @@ const TimeRecordPage = () => {
           >
             <FormField
               control={form.control}
-              name="emailAddress"
+              name="datetime"
               render={({ field }) => {
                 return (
-                  <FormItem>
-                    <FormLabel>Email address</FormLabel>
+                  <FormItem className="flex flex-col">
+                    <FormLabel>Datetime</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="peter.chan@gmail.com"
-                        type="email"
-                        {...field}
-                      />
+                      <Input type="datetime-local" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -84,43 +71,13 @@ const TimeRecordPage = () => {
             />
             <FormField
               control={form.control}
-              name="activityType"
+              name="name"
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Activity Type</FormLabel>
-                    <Select onValueChange={field.onChange}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="選擇活動" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="work">工作</SelectItem>
-                        <SelectItem value="rest">休息</SelectItem>
-                        <SelectItem value="sports">運動</SelectItem>
-                        <SelectItem value="meal">食飯</SelectItem>
-                        <SelectItem value="fun">娛樂</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Event name</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="password"
-                        type="password"
-                        {...field}
-                      />
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -129,17 +86,28 @@ const TimeRecordPage = () => {
             />
             <FormField
               control={form.control}
-              name="passwordConfirm"
+              name="details"
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Password Confirm</FormLabel>
+                    <FormLabel>Details</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="password confirm"
-                        type="password"
-                        {...field}
-                      />
+                      <Textarea {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            />
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => {
+                return (
+                  <FormItem>
+                    <FormLabel>Location</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -147,7 +115,7 @@ const TimeRecordPage = () => {
               }}
             />
             <Button type="submit" className="w-full">
-              Submit
+              Create
             </Button>
           </form>
         </Form>
