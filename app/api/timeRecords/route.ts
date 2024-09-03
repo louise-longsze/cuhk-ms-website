@@ -1,8 +1,16 @@
 import { currentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { UserRole } from "@prisma/client";
+import { TimeRecord, UserRole } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { inflate } from "zlib";
+import dayjs from "dayjs";
+
+function transformTimeRecord(timeRecord: TimeRecord) {
+  return {
+    ...timeRecord,
+    datetime: dayjs(timeRecord.datetime).format("YYYY-MM-DD HH:mm:ss"),
+  };
+}
 
 export async function GET() {
   const user = await currentUser();
@@ -16,9 +24,15 @@ export async function GET() {
   const timeRecords = await db.timeRecord.findMany({
     where: {
       authorId: userId,
+      datetime: {
+        gte: dayjs().startOf("year").toISOString(),
+      }
     },
+    orderBy: {
+      datetime: "asc",
+    }
   });
-  return NextResponse.json(timeRecords);
+  return NextResponse.json(timeRecords.map(transformTimeRecord));
 }
 
 interface PostRequestBody {
@@ -39,7 +53,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
   const { datetime, name, details, location }: PostRequestBody =
     await request.json();
 
-  const timeRecords = await db.timeRecord.create({
+  const timeRecord = await db.timeRecord.create({
     data: {
       datetime,
       name,
@@ -48,5 +62,5 @@ export async function POST(request: NextRequest, res: NextResponse) {
       authorId: userId,
     },
   });
-  return NextResponse.json(timeRecords);
+  return NextResponse.json(transformTimeRecord(timeRecord));
 }
