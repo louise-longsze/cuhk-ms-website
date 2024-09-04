@@ -17,14 +17,14 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { DialogClose } from "@radix-ui/react-dialog";
 import { useState } from "react";
+import dayjs from "dayjs";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   datetime: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/g),
@@ -33,15 +33,22 @@ const formSchema = z.object({
   location: z.string().optional(),
 });
 
-interface Props {}
-export const CreateTimeRecord: React.FC<Props> = () => {
+interface Props {
+  onTimeRecordCreated: () => void;
+}
+export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      datetime: dayjs().add(1, "days").format("YYYY-MM-DDTHH:mm"),
+    },
   });
 
   const [open, setOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const submitHandler = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
     try {
       let timeRecord = await fetch(
         `${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`,
@@ -57,15 +64,20 @@ export const CreateTimeRecord: React.FC<Props> = () => {
         }
       );
       setOpen(false);
-      console.debug("Created", { timeRecord });
+      onTimeRecordCreated();
+      toast.success("Event Created!");
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsSubmitting(false);
     }
   };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="mb-4" variant="outline">New</Button>
+        <Button variant="outline">
+          New
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -137,7 +149,9 @@ export const CreateTimeRecord: React.FC<Props> = () => {
               }}
             />
             <DialogFooter>
-              <Button type="submit">Save changes</Button>
+              <Button type="submit">
+                {isSubmitting ? "Creating..." : "Save changes"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

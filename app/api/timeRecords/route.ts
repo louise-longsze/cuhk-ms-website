@@ -1,9 +1,9 @@
 import { currentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { TimeRecord, UserRole } from "@prisma/client";
+import { TimeRecord } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-import { inflate } from "zlib";
 import dayjs from "dayjs";
+import { MONTHLY_SCHEDULER_MONTH_RANGE } from "@/constants/monthlyscheduler";
 
 function transformTimeRecord(timeRecord: TimeRecord) {
   return {
@@ -25,12 +25,13 @@ export async function GET() {
     where: {
       authorId: userId,
       datetime: {
-        gte: dayjs().startOf("year").toISOString(),
-      }
+        gte: dayjs().add(-MONTHLY_SCHEDULER_MONTH_RANGE, "months").toISOString(),
+        lte: dayjs().add(MONTHLY_SCHEDULER_MONTH_RANGE, "months").toISOString(),
+      },
     },
     orderBy: {
       datetime: "asc",
-    }
+    },
   });
   return NextResponse.json(timeRecords.map(transformTimeRecord));
 }

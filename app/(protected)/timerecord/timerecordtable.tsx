@@ -9,8 +9,7 @@ interface Props {
 export const TimeRecordTable: React.FC<Props> = ({ timeRecords }) => {
   const timeRecordByMonth = useMemo(() => {
     return _groupBy(timeRecords, (t) => {
-      console.log(dayjs(t.datetime).month());
-      return dayjs(t.datetime).month();
+      return dayjs(t.datetime).format('YYYY MMM');
     });
   }, timeRecords);
 
@@ -22,9 +21,9 @@ export const TimeRecordTable: React.FC<Props> = ({ timeRecords }) => {
           return (
             <div className="">
               <div className="pb-3 text-xl font-bold">
-                {dayjs(timeRecordsByMonth[0]).format("MMMM")}
+                {dayjs(timeRecordsByMonth[0], 'YYYY-MMM').format("MMM YYYY")}
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {timeRecordsByMonth[1].map((timeRecord) => {
                   return (
                     <div className="p-4 flex flex-col gap-2 bg-white rounded-lg">
