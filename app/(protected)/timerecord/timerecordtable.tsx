@@ -1,8 +1,11 @@
+"use client";
+
 import { TimeRecordDTO as TimeRecord } from "@/app/api/timeRecords/dto";
 import { useCallback, useState } from "react";
 import _groupBy from "lodash/groupBy";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import listPlugin from "@fullcalendar/list";
 import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
@@ -19,13 +22,18 @@ export const TimeRecordTable: React.FC<Props> = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [timeRecord, setTimeRecord] = useState<TimeRecord | null>(null);
 
+  let screenSize = 1000;
+  if (typeof window !== "undefined") {
+    screenSize = window.innerWidth;
+  }
+
   return (
-    <div className="flex flex-col gap-8">
+    <div>
       <FullCalendar
         locales={[zhTwLocale]}
         locale="zh-tw"
-        plugins={[dayGridPlugin]}
-        initialView="dayGridMonth"
+        plugins={[dayGridPlugin, listPlugin]}
+        initialView={screenSize > 700 ? "dayGridMonth" : "listMonth"}
         selectable
         validRange={{
           start: dayjs().add(-3, "month").startOf("month").toDate(),
@@ -67,13 +75,13 @@ export const TimeRecordTable: React.FC<Props> = ({
                 type="button"
                 variant="destructive"
                 onClick={async () => {
-                  setIsDeleting(true)
+                  setIsDeleting(true);
                   await deleteTimeRecord(timeRecord.id);
                   setIsDeleting(false);
                   setTimeRecord(null);
                 }}
               >
-               {isDeleting ? "刪除中..." : "刪除"}
+                {isDeleting ? "刪除中..." : "刪除"}
               </Button>
             </DialogFooter>
           </DialogContent>
