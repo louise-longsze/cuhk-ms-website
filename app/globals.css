@@ -336,3 +336,8 @@ h4 {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+/* REACT-BIG-CALANDER STYLES */
+.fc .fc-popover {
+  z-index: 2;
+}

@@ -50,7 +50,7 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
   const submitHandler = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
-      let timeRecord = await fetch(
+      await fetch(
         `${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`,
         {
           method: "POST",
@@ -66,22 +66,22 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
       setOpen(false);
       onTimeRecordCreated();
       toast.success("Event Created!");
+      form.reset();
     } catch (e) {
       console.error(e);
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">
-          New
-        </Button>
+        <Button variant="outline">新增</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>New Event</DialogTitle>
+          <DialogTitle>新增活動</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form
@@ -94,7 +94,7 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
               render={({ field }) => {
                 return (
                   <FormItem className="flex flex-col">
-                    <FormLabel>Datetime</FormLabel>
+                    <FormLabel>日期時間</FormLabel>
                     <FormControl>
                       <Input type="datetime-local" {...field} />
                     </FormControl>
@@ -109,7 +109,7 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Event name</FormLabel>
+                    <FormLabel>活動名稱</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -124,7 +124,7 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Details</FormLabel>
+                    <FormLabel>詳情</FormLabel>
                     <FormControl>
                       <Textarea {...field} />
                     </FormControl>
@@ -139,7 +139,7 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Location</FormLabel>
+                    <FormLabel>地點</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
@@ -149,9 +149,7 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
               }}
             />
             <DialogFooter>
-              <Button type="submit">
-                {isSubmitting ? "Creating..." : "Save changes"}
-              </Button>
+              <Button type="submit">{isSubmitting ? "提交中..." : "提交"}</Button>
             </DialogFooter>
           </form>
         </Form>
