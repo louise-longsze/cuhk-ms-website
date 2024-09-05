@@ -40,7 +40,6 @@ export const TimeRecordTable: React.FC<Props> = ({
           end: dayjs().add(3, "month").endOf("month").toDate(),
         }}
         eventClick={(e) => {
-          console.log(e, e.event, e.view, e.jsEvent);
           setTimeRecord(timeRecords.find((t) => t.id === e.event.id) || null);
         }}
         dayMaxEventRows={3}
