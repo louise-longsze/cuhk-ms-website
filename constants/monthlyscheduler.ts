@@ -1,0 +1,1 @@
+export const MONTHLY_SCHEDULER_MONTH_RANGE = 3;
