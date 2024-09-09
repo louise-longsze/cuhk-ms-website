@@ -20,8 +20,8 @@ export const DISTRICTS = {
     longitude: 113.9732,
   },
   北區: {
-    latitude: 22.4914,
-    longitude: 114.1879,
+    latitude: 22.498569,
+    longitude: 114.132881,
   },
   西貢: {
     latitude: 22.2665,
@@ -32,8 +32,8 @@ export const DISTRICTS = {
     longitude: 114.2029,
   },
   東區: {
-    latitude: 22.283,
-    longitude: 114.2244,
+    latitude: 22.286622,
+    longitude: 114.213177,
   },
   油尖旺: {
     latitude: 22.3088,
@@ -52,16 +52,16 @@ export const DISTRICTS = {
     longitude: 114.1052,
   },
   深水埗: {
-    latitude: 22.3336,
-    longitude: 114.1645,
+    latitude: 22.330171,
+    longitude: 114.158954,
   },
   黃大仙: {
-    latitude: 22.3468,
-    longitude: 114.1962,
+    latitude: 22.342544,
+    longitude: 114.197774,
   },
   葵青: {
-    latitude: 22.366,
-    longitude: 114.1339,
+    latitude: 22.355745,
+    longitude: 114.132176,
   },
   離島: {
     latitude: 22.197,
