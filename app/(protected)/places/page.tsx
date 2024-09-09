@@ -39,6 +39,8 @@ const PlacePage = () => {
     async function fetchPlaces() {
       setIsLoading(true)
       try {
+        params.set("district", districtFilter);
+        params.set("facility", facilityFilter);
         let data = await fetch(
           `${process.env.NEXT_PUBLIC_APP_API_URL}/places?${params.toString()}`
         );
