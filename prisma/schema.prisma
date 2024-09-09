@@ -26,6 +26,7 @@ model User {
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
   Activity              Activity[]
+  TimeRecord            TimeRecord[]
 }
 
 model Account {
@@ -106,7 +107,7 @@ enum PlaceStatus {
 }
 
 model Place {
-  id         String         @id @default(cuid())
+  id         String      @id @default(cuid())
   district   String
   name       String
   address    String
@@ -114,4 +115,16 @@ model Place {
   facilities String?
   photo_path String
   status     PlaceStatus @default(Active)
+}
+
+model TimeRecord {
+  id       String   @id @default(cuid())
+  author   User    @relation(fields: [authorId], references: [id])
+  authorId String
+  name     String
+  details  String
+  location String?
+  datetime DateTime
+
+  @@index([authorId])
 }
