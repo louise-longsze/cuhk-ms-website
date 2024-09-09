@@ -132,8 +132,9 @@ const PlacePage = () => {
       {isLoading && <div className="w-full px-10 text-center">Loading...</div>}
       {!isLoading && filteredPlaces.length > 0 && (
         <div className="grid grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-6 w-full px-10 xl:px-40 pb-10">
-          {filteredPlaces.map((place) => (
+          {filteredPlaces.map((place, key) => (
             <LocationCard
+              key={key}
               name={place.name}
               district={place.district}
               address={place.address}
