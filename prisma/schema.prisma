@@ -126,14 +126,19 @@ model Place {
 }
 
 model TimeRecord {
-  id       String   @id @default(cuid())
-  author   User    @relation(fields: [authorId], references: [id])
-  authorId String
-  name     String
-  details  String
-  location String?
-  datetime DateTime
+  id           String       @id @default(cuid())
+  author       User         @relation(fields: [authorId], references: [id])
+  authorId     String
+  name         String
+  details      String
+  location     String?
+  datetime     DateTime
   activityType activityType @default(WALKING)
+  endAt        DateTime
+
+  sbp   Int @default(80)
+  dbp   Int @default(80)
+  pulse Int @default(80)
 
   @@index([authorId])
 }

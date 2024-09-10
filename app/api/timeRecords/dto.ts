@@ -1,8 +1,9 @@
 import { TimeRecord, activityType as ActivityEnum } from "@prisma/client";
 
 export interface TimeRecordDTO
-  extends Omit<TimeRecord, "datetime" | "activityType"> {
+  extends Omit<TimeRecord, "datetime" | "endAt" | "activityType"> {
   datetime: string;
+  endAt: string;
   activityType: string;
 }
 

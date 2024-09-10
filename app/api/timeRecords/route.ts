@@ -11,6 +11,7 @@ function transformTimeRecord(timeRecord: TimeRecord) {
     ...timeRecord,
     activityType: transformActivityType(timeRecord.activityType),
     datetime: dayjs(timeRecord.datetime).format("YYYY-MM-DD HH:mm:ss"),
+    endAt: dayjs(timeRecord.endAt).format("YYYY-MM-DD HH:mm:ss"),
   };
 }
 
@@ -40,10 +41,14 @@ export async function GET() {
 
 interface PostRequestBody {
   datetime: string;
+  endAt: string;
   name: string;
   details: string;
   location: string;
   activityType: string;
+  sbp: number;
+  dbp: number;
+  pulse: number;
 }
 
 export async function POST(request: NextRequest, res: NextResponse) {
@@ -54,17 +59,21 @@ export async function POST(request: NextRequest, res: NextResponse) {
   }
 
   const { id: userId } = user;
-  const { datetime, name, details, location, activityType }: PostRequestBody =
+  const { datetime, name, details, location, activityType, sbp, dbp, pulse, endAt }: PostRequestBody =
     await request.json();
 
   const timeRecord = await db.timeRecord.create({
     data: {
       datetime,
+      endAt,
       name,
       details,
       location,
       authorId: userId,
       activityType: transformActivityTypeEnum(activityType),
+      sbp,
+      dbp,
+      pulse,
     },
   });
   return NextResponse.json(transformTimeRecord(timeRecord));
