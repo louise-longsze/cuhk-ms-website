@@ -31,15 +31,6 @@ const LocationCard: React.FC<Props> = ({
       <div className="text-xs">{district}</div>
       <div className="text-xs">{address}</div>
       <div className="text-xs">{facilities}</div>
-      {url && (
-        <a
-          href={url}
-          target="_blank"
-          className="text-xs text-primary font-bold mt-1"
-        >
-          More Details
-        </a>
-      )}
     </div>
   );
 };
