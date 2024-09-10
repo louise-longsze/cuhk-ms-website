@@ -7,7 +7,6 @@ import { MONTHLY_SCHEDULER_MONTH_RANGE } from "@/constants/monthlyscheduler";
 import { transformActivityType, transformActivityTypeEnum } from "./dto";
 
 function transformTimeRecord(timeRecord: TimeRecord) {
-  console.log(timeRecord.activityType);
   return {
     ...timeRecord,
     activityType: transformActivityType(timeRecord.activityType),

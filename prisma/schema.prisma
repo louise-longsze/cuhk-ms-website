@@ -85,17 +85,25 @@ model TwoFactorConfirmation {
 }
 
 enum activityType {
-  IDLE
-  WORK
-  REST
-  SPORTS
-  MEAL
-  FUN
+  WALKING
+  TAI_JI
+  STRETCHING
+  FAST_WALK
+  SWIMMING
+  RACING
+  RUNNING
+  YOGA
+  GOLF
+  BALL
+  DANCE
+  HIKING
+  TENNIS
+  BOXING
 }
 
 model Activity {
   id           String       @id @default(cuid())
-  activityType activityType @default(IDLE)
+  activityType activityType @default(WALKING)
   author       User?        @relation(fields: [authorId], references: [id])
   authorId     String?
 }
@@ -125,7 +133,7 @@ model TimeRecord {
   details  String
   location String?
   datetime DateTime
-  activityType activityType @default(WORK)
+  activityType activityType @default(WALKING)
 
   @@index([authorId])
 }
