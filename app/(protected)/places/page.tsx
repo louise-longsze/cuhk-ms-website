@@ -9,6 +9,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Place } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Pagination } from "./pagination";
+import { PAGE_SIZE } from "@/constants/pagination";
 
 const getNearestDistrict = (lat: number, lng: number) => {
   let minDistrictDistance: [string, number] = ["", Infinity];
@@ -32,15 +34,26 @@ const PlacePage = () => {
   const [places, setPlaces] = useState<Place[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const districtFilter = params.get("district") || Object.keys(DISTRICTS)[0];
+  const districtFilter = params.get("district");
   const facilityFilter = params.get("facility") || "";
+  const page = params.get("page") || '1';
 
   useEffect(() => {
     async function fetchPlaces() {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        params.set("district", districtFilter);
-        params.set("facility", facilityFilter);
+        if (districtFilter) {
+          params.set("district", districtFilter);
+        }
+
+        if (facilityFilter) {
+          params.set("facility", facilityFilter);
+        }
+
+        if (page) {
+          params.set("page", page);
+        }
+
         let data = await fetch(
           `${process.env.NEXT_PUBLIC_APP_API_URL}/places?${params.toString()}`
         );
@@ -53,28 +66,24 @@ const PlacePage = () => {
       setIsLoading(false);
     }
     fetchPlaces();
-  }, [districtFilter]);
+  }, [districtFilter, facilityFilter, page]);
 
   const onClickDistrictCheckbox = (district: string) => {
-    params.set("district", district);
+    params.set("district", district === districtFilter ? "" : district);
+    params.set("page", '1');
     router.push(window.location.pathname + "?" + params.toString());
   };
 
   const onClickFacilityFilter = (facility: string) => {
     params.set("facility", facility);
+    params.set("page", String(page));
     router.push(window.location.pathname + "?" + params.toString());
   };
 
-  const filteredPlaces = useMemo(() => {
-    return facilityFilter
-      ? places.filter(({ facilities }) =>
-          new RegExp(
-            // exact match for english and chinese character
-            `(^|[^a-zA-Z0-9_\\u4e00-\\u9fa5])${facilityFilter}($|[^a-zA-Z0-9_\\u4e00-\\u9fa5])`
-          ).test(facilities || "")
-        )
-      : places;
-  }, [places, facilityFilter]);
+  const onClickPage = (page: number) => {
+    params.set("page", String(page));
+    router.push(window.location.pathname + "?" + params.toString());
+  };
 
   const searchByNearest = useCallback(() => {
     if (navigator.geolocation) {
@@ -130,9 +139,9 @@ const PlacePage = () => {
         />
       </div>
       {isLoading && <div className="w-full px-10 text-center">Loading...</div>}
-      {!isLoading && filteredPlaces.length > 0 && (
-        <div className="grid grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-6 w-full px-10 xl:px-40 pb-10">
-          {filteredPlaces.map((place, key) => (
+      {!isLoading && places.length > 0 && (
+        <div className="grid grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-6 w-full px-10 xl:px-40 pb-2">
+          {places.map((place, key) => (
             <LocationCard
               key={key}
               name={place.name}
@@ -145,9 +154,15 @@ const PlacePage = () => {
           ))}
         </div>
       )}
-      {!isLoading && filteredPlaces.length === 0 && (
+      {!isLoading && places.length === 0 && (
         <div className="w-full px-10 text-center">No results</div>
       )}
+      <Pagination
+        page={parseInt(page)}
+        onChangePage={onClickPage}
+        disableNext={PAGE_SIZE > places.length}
+      />
+      <div className="h-4"></div>
     </>
   );
 };
