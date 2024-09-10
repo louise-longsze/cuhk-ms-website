@@ -125,6 +125,7 @@ model TimeRecord {
   details  String
   location String?
   datetime DateTime
+  activityType activityType @default(WORK)
 
   @@index([authorId])
 }

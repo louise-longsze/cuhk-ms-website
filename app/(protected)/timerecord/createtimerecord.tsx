@@ -25,12 +25,21 @@ import {
 import { useState } from "react";
 import dayjs from "dayjs";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+  SelectTrigger,
+} from "@/components/ui/select";
+import { ACTIVITIES_TYPE_OPTIONS } from "@/constants/monthlyscheduler";
 
 const formSchema = z.object({
   datetime: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/g),
   name: z.string(),
   details: z.string(),
   location: z.string().optional(),
+  activityType: z.string(),
 });
 
 interface Props {
@@ -142,6 +151,35 @@ export const CreateTimeRecord: React.FC<Props> = ({ onTimeRecordCreated }) => {
                     <FormLabel>地點</FormLabel>
                     <FormControl>
                       <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            />
+            <FormField
+              control={form.control}
+              name="activityType"
+              render={({ field }) => {
+                return (
+                  <FormItem>
+                    <FormLabel>類型</FormLabel>
+                    <FormControl>
+                      <Select
+                        value={field.value}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger className="w-[180px]">
+                          <SelectValue placeholder="-" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {ACTIVITIES_TYPE_OPTIONS.map(({ label, value }) => (
+                            <SelectItem key={value} value={value}>
+                              {label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </FormControl>
                     <FormMessage />
                   </FormItem>

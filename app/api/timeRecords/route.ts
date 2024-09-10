@@ -4,10 +4,13 @@ import { TimeRecord } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import dayjs from "dayjs";
 import { MONTHLY_SCHEDULER_MONTH_RANGE } from "@/constants/monthlyscheduler";
+import { transformActivityType, transformActivityTypeEnum } from "./dto";
 
 function transformTimeRecord(timeRecord: TimeRecord) {
+  console.log(timeRecord.activityType);
   return {
     ...timeRecord,
+    activityType: transformActivityType(timeRecord.activityType),
     datetime: dayjs(timeRecord.datetime).format("YYYY-MM-DD HH:mm:ss"),
   };
 }
@@ -41,6 +44,7 @@ interface PostRequestBody {
   name: string;
   details: string;
   location: string;
+  activityType: string;
 }
 
 export async function POST(request: NextRequest, res: NextResponse) {
@@ -51,7 +55,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
   }
 
   const { id: userId } = user;
-  const { datetime, name, details, location }: PostRequestBody =
+  const { datetime, name, details, location, activityType }: PostRequestBody =
     await request.json();
 
   const timeRecord = await db.timeRecord.create({
@@ -61,6 +65,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
       details,
       location,
       authorId: userId,
+      activityType: transformActivityTypeEnum(activityType),
     },
   });
   return NextResponse.json(transformTimeRecord(timeRecord));

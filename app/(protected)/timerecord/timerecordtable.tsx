@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
 import zhTwLocale from "@fullcalendar/core/locales/zh-tw";
+import { ACTIVITIES_TYPE_OPTIONS } from "@/constants/monthlyscheduler";
 
 interface Props {
   timeRecords: TimeRecord[];
@@ -61,6 +62,7 @@ export const TimeRecordTable: React.FC<Props> = ({
               <div className="text-xl font-bold mb-4">{timeRecord.name}</div>
               <div>日期時間: {timeRecord.datetime}</div>
               <div>地點: {timeRecord.location}</div>
+              <div>類型: {ACTIVITIES_TYPE_OPTIONS.find((t) => t.value === timeRecord.activityType)?.label || '-'}</div>
               <div>
                 <div>詳情:</div>
                 <div className="text-xs text-gray-500 mt-2">
