@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Pagination } from "./pagination";
 import { PAGE_SIZE } from "@/constants/pagination";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const getNearestDistrict = (lat: number, lng: number) => {
   let minDistrictDistance: [string, number] = ["", Infinity];
@@ -32,11 +33,12 @@ const PlacePage = () => {
   const params = new URLSearchParams(searchParams.toString());
   const router = useRouter();
   const [places, setPlaces] = useState<Place[]>([]);
+  const [totalPage, setTotalPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState(true);
 
   const districtFilter = params.get("district");
   const facilityFilter = params.get("facility") || "";
-  const page = params.get("page") || '1';
+  const page = params.get("page") || "1";
 
   useEffect(() => {
     async function fetchPlaces() {
@@ -57,8 +59,12 @@ const PlacePage = () => {
         let data = await fetch(
           `${process.env.NEXT_PUBLIC_APP_API_URL}/places?${params.toString()}`
         );
-        const places: Place[] = await data.json();
+        const {
+          facilities: places,
+          totalPage,
+        }: { facilities: Place[]; totalPage: number } = await data.json();
         setPlaces(places);
+        setTotalPage(totalPage);
       } catch (error) {
         console.error(error);
         toast.error("Something went wrong! Try again later");
@@ -68,9 +74,12 @@ const PlacePage = () => {
     fetchPlaces();
   }, [districtFilter, facilityFilter, page]);
 
-  const onClickDistrictCheckbox = (district: string) => {
-    params.set("district", district === districtFilter ? "" : district);
-    params.set("page", '1');
+  const onClickDistrictCheckbox = (district: string | null) => {
+    const districtParam =
+      !district || district === districtFilter ? "" : district;
+
+    params.set("district", districtParam);
+    params.set("page", "1");
     router.push(window.location.pathname + "?" + params.toString());
   };
 
@@ -118,10 +127,17 @@ const PlacePage = () => {
               <Checkbox
                 key={district}
                 label={district}
+                value={district}
                 checked={districtFilter === district}
                 onChange={onClickDistrictCheckbox}
               />
             ))}
+            <Checkbox
+              label={"全選"}
+              value={null}
+              checked={!districtFilter}
+              onChange={onClickDistrictCheckbox}
+            />
           </div>
           <Button
             className="ml-4 py-5 flex items-center"
@@ -159,9 +175,20 @@ const PlacePage = () => {
       )}
       <Pagination
         page={parseInt(page)}
+        total={totalPage}
         onChangePage={onClickPage}
         disableNext={PAGE_SIZE > places.length}
       />
+      <DropdownMenu>
+        <DropdownMenuTrigger>跳至</DropdownMenuTrigger>
+        <DropdownMenuContent className="max-h-40 overflow-auto">
+          {Array.from({ length: totalPage }, (_, i) => i + 1).map((i) => (
+            <DropdownMenuItem onClick={() => onClickPage(i)}>
+              {i}
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
       <div className="h-4"></div>
     </>
   );

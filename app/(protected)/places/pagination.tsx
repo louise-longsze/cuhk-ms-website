@@ -1,7 +1,6 @@
 import {
   Pagination as PaginationRoot,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -10,11 +9,17 @@ import {
 
 interface Props {
   page: number;
+  total: number;
   onChangePage: (page: number) => void;
   disableNext?: boolean;
 }
 
-export const Pagination = ({ page, onChangePage, disableNext }: Props) => {
+export const Pagination = ({
+  page,
+  onChangePage,
+  disableNext,
+  total,
+}: Props) => {
   return (
     <PaginationRoot>
       <PaginationContent>
@@ -27,7 +32,9 @@ export const Pagination = ({ page, onChangePage, disableNext }: Props) => {
           />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">{page}</PaginationLink>
+          <PaginationLink href="#">
+            {page}/{total}
+          </PaginationLink>
         </PaginationItem>
         <PaginationItem className={disableNext ? "invisible" : ""}>
           <PaginationNext

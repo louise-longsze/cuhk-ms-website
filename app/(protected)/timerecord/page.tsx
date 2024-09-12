@@ -54,7 +54,7 @@ const TimeRecordPage = () => {
   return (
     <div className="w-4/5 mb-8">
       <div className="text-3xl font-bold pb-8 flex justify-between items-center">
-        <div>活動紀錄</div>
+        <div>我要記錄</div>
         <div className="flex gap-2">
           <CreateTimeRecord onTimeRecordCreated={fetchTimeRecords} />
           {!isLoading && timeRecords?.length > 0 && (
