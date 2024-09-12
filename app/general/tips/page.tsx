@@ -15,7 +15,7 @@ const TipsPage = () => {
   return (
     <>
       <HeroSection
-        title={"生活提示"}
+        title={"慢活放鬆"}
         subtitle={
           "代謝症候群的高危因素很多，其中部分因素可以避免或控制，包括⾼血壓、⾼⾎脂、吸煙、糖尿病、肥胖、缺乏體能活動和⾧期受到壓⼒。家族成員曾患有心臟病，也會增加患病風險。根據美國⼼臟協會的建議，健康生活模式需要包括不吸煙/戒煙，規律運動與飲食管理等，還有在生活中緩解到壓力與懂得放鬆⾃己也是不可或缺的。"
         }
@@ -130,8 +130,8 @@ const TipsPage = () => {
           <div className="flex flex-col justify-center items-center">
             <h2>減壓方法</h2>
           </div>
-          <div className="flex mx-auto lg:flex-row w-full max-w-screen-2xl justify-center items-center">
-            <div className="w-1/2 justify-center items-center pr-20">
+          <div className="flex mx-auto flex-col gap-20 lg:flex-row w-full max-w-screen-2xl justify-center items-center">
+            <div className="w-5/6 lg:w-1/2 justify-center items-center">
               {relaxlist.map((relax, index) => {
                 return (
                   <Accordion type="single" collapsible key={index}>

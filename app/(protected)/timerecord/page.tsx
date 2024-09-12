@@ -6,6 +6,9 @@ import { CreateTimeRecord } from "./createtimerecord";
 import { useCallback, useEffect, useState } from "react";
 import { TimeRecordTable } from "./timerecordtable";
 import { toast } from "sonner";
+import PulseChart from "../_components/pulseChart";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const TimeRecordPage = () => {
   const user = useCurrentUser();
@@ -38,7 +41,9 @@ const TimeRecordPage = () => {
       await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords/${id}`, {
         method: "DELETE",
       });
-      setTimeRecords((prev) => prev.filter((timeRecord) => timeRecord.id !== id));
+      setTimeRecords((prev) =>
+        prev.filter((timeRecord) => timeRecord.id !== id)
+      );
       toast.success("成功刪除活動");
     } catch (error) {
       toast.error("刪除活動失敗，請稍後再試");
@@ -50,7 +55,21 @@ const TimeRecordPage = () => {
     <div className="w-4/5 mb-8">
       <div className="text-3xl font-bold pb-8 flex justify-between items-center">
         <div>活動紀錄</div>
-        <CreateTimeRecord onTimeRecordCreated={fetchTimeRecords} />
+        <div className="flex gap-2">
+          <CreateTimeRecord onTimeRecordCreated={fetchTimeRecords} />
+          {!isLoading && timeRecords?.length > 0 && (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="ml-auto" variant="outline">
+                  圖表分析
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-auto">
+                <PulseChart timeRecords={timeRecords} />
+              </DialogContent>
+            </Dialog>
+          )}
+        </div>
       </div>
       {isLoading && <div>Loading...</div>}
       {!isLoading && (
