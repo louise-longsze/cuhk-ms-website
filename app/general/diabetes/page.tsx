@@ -371,6 +371,48 @@ const DiabetesPage = () => {
                   <br />• 定時檢測血糖水平作為治療參考
                   <br />• 有需要時接受藥物治療
                 </p>
+                <table className="text-center">
+                  <tr className="bg-blue-600 border-b border-blue-400">
+                    <th
+                      rowSpan={4}
+                      className="px-6 py-4 font-medium border-r border-blue-400 text-wrap text-blue-50 whitespace-nowrap"
+                    >
+                      血糖水平
+                    </th>
+                    <th className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap">
+                      檢查項目
+                    </th>
+                    <th className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap">
+                      控製目標
+                    </th>
+                  </tr>
+                  <tr className="bg-blue-600 border-b border-blue-400">
+                    <td className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap">
+                      空腹血糖值
+                    </td>
+                    <td className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap">
+                      4 至 7 度 (mmol/L)
+                    </td>
+                  </tr>
+                  <tr className="bg-blue-600 border-b border-blue-400">
+                    <td className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap">
+                      餐後 2 小時
+                      <br />
+                      血糖值
+                    </td>
+                    <td className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap">
+                      5 至 10 度 (mmol/L)
+                    </td>
+                  </tr>
+                  <tr className="bg-blue-600 border-b border-blue-400">
+                    <td className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap">
+                      糖化血紅素
+                    </td>
+                    <td className="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap">
+                      一般低於 7%
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
             <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">

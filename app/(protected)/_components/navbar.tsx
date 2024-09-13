@@ -49,7 +49,7 @@ export const Navbar = () => {
           asChild
           variant={pathname === "/timerecord" ? "default" : "outline"}
         >
-          <Link href="/timerecord">活動紀錄</Link>
+          <Link href="/timerecord">我要記錄</Link>
         </Button>
       </div>
       <UserButton />
