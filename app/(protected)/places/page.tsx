@@ -182,8 +182,8 @@ const PlacePage = () => {
       <DropdownMenu>
         <DropdownMenuTrigger>跳至</DropdownMenuTrigger>
         <DropdownMenuContent className="max-h-40 overflow-auto">
-          {Array.from({ length: totalPage }, (_, i) => i + 1).map((i) => (
-            <DropdownMenuItem onClick={() => onClickPage(i)}>
+          {Array.from({ length: totalPage }, (_, i) => i + 1).map((i, key) => (
+            <DropdownMenuItem key={key} onClick={() => onClickPage(i)}>
               {i}
             </DropdownMenuItem>
           ))}
