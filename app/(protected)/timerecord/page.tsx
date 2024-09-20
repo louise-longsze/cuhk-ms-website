@@ -2,28 +2,45 @@
 
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { TimeRecordDTO as TimeRecord } from "@/app/api/timeRecords/dto";
-import { CreateTimeRecord } from "./createtimerecord";
+import { BloodPressureDTO as BloodPressure } from "@/app/api/bloodPressures/dto";
+import { BloodSugarDTO as BloodSugar } from "@/app/api/bloodSugars/dto";
+import { TimeRecordDialog } from "./TimeRecordDialog";
 import { useCallback, useEffect, useState } from "react";
-import { TimeRecordTable } from "./timerecordtable";
+import { TimeRecordTable } from "./TimeRecordTable";
 import { toast } from "sonner";
 import PulseChart from "../_components/pulseChart";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { BloodSugarDialog } from "./BloodSugarDialog";
+import { BloodPressureDialog } from "./BloodPressureDialog";
+import { ListTable } from "./ListTable";
+import TimeRecordChart from "../_components/timeRecordChart";
 
 const TimeRecordPage = () => {
   const user = useCurrentUser();
   const [isLoading, setIsLoading] = useState(false);
   const [timeRecords, setTimeRecords] = useState<TimeRecord[]>([]);
+  const [bloodSugars, setBloodSugar] = useState<BloodSugar[]>([]);
+  const [bloodPressures, setBloodPressure] = useState<BloodPressure[]>([]);
 
-  const fetchTimeRecords = useCallback(async () => {
+  const fetchRecords = useCallback(async () => {
     setIsLoading(true);
 
     try {
-      let data = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`
-      );
-      const timeRecords: TimeRecord[] = await data.json();
+      const [timeRecords, bloodSugars, bloodPressures] = await Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`).then((v) =>
+          v.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars`).then((v) =>
+          v.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures`).then(
+          (v) => v.json()
+        ),
+      ]);
       setTimeRecords(timeRecords);
+      setBloodSugar(bloodSugars);
+      setBloodPressure(bloodPressures);
     } catch (error) {
       toast.error("Something went wrong. Try again later");
       console.error(error);
@@ -33,8 +50,8 @@ const TimeRecordPage = () => {
   }, []);
 
   useEffect(() => {
-    fetchTimeRecords();
-  }, [fetchTimeRecords]);
+    fetchRecords();
+  }, [fetchRecords]);
 
   const deleteTimeRecord = useCallback(async (id: string) => {
     try {
@@ -56,8 +73,10 @@ const TimeRecordPage = () => {
       <div className="text-3xl font-bold pb-8 flex justify-between items-center">
         <div>我要記錄</div>
         <div className="flex gap-2">
-          <CreateTimeRecord onTimeRecordCreated={fetchTimeRecords} />
-          {!isLoading && timeRecords?.length > 0 && (
+          <TimeRecordDialog onTimeRecordCreated={fetchRecords} />
+          <BloodSugarDialog onCreated={fetchRecords} />
+          <BloodPressureDialog onCreated={fetchRecords} />
+          {!isLoading && (
             <Dialog>
               <DialogTrigger asChild>
                 <Button className="ml-auto" variant="outline">
@@ -65,7 +84,8 @@ const TimeRecordPage = () => {
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-auto">
-                <PulseChart timeRecords={timeRecords} />
+                <TimeRecordChart timeRecords={timeRecords} />
+                <PulseChart bloodPressures={bloodPressures} />
               </DialogContent>
             </Dialog>
           )}
@@ -73,10 +93,18 @@ const TimeRecordPage = () => {
       </div>
       {isLoading && <div>Loading...</div>}
       {!isLoading && (
-        <TimeRecordTable
-          timeRecords={timeRecords}
-          deleteTimeRecord={deleteTimeRecord}
-        />
+        <>
+          <ListTable
+            timeRecords={timeRecords}
+            bloodSugars={bloodSugars}
+            bloodPressures={bloodPressures}
+            onUpdatedSuccess={fetchRecords}
+          />
+          <TimeRecordTable
+            timeRecords={timeRecords}
+            deleteTimeRecord={deleteTimeRecord}
+          />
+        </>
       )}
     </div>
   );
