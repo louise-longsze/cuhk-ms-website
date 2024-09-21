@@ -17,37 +17,53 @@ import { ListTable } from "./ListTable";
 import TimeRecordChart from "../_components/timeRecordChart";
 
 const TimeRecordPage = () => {
-  const user = useCurrentUser();
   const [isLoading, setIsLoading] = useState(false);
   const [timeRecords, setTimeRecords] = useState<TimeRecord[]>([]);
   const [bloodSugars, setBloodSugar] = useState<BloodSugar[]>([]);
   const [bloodPressures, setBloodPressure] = useState<BloodPressure[]>([]);
 
-  const fetchRecords = useCallback(async () => {
-    setIsLoading(true);
+  const fetchRecords = useCallback(
+    async (type?: "timeRecords" | "bloodSugars" | "bloodPressures") => {
+      setIsLoading(true);
 
-    try {
-      const [timeRecords, bloodSugars, bloodPressures] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`).then((v) =>
-          v.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars`).then((v) =>
-          v.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures`).then(
-          (v) => v.json()
-        ),
-      ]);
-      setTimeRecords(timeRecords);
-      setBloodSugar(bloodSugars);
-      setBloodPressure(bloodPressures);
-    } catch (error) {
-      toast.error("Something went wrong. Try again later");
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+      try {
+        if (type === "timeRecords") {
+          await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`)
+            .then((v) => v.json())
+            .then((timeRecords) => setTimeRecords(timeRecords));
+        } else if (type === "bloodSugars") {
+          await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars`)
+            .then((v) => v.json())
+            .then((bloodSugars) => setBloodSugar(bloodSugars));
+        } else if (type === "bloodPressures") {
+          await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures`)
+            .then((v) => v.json())
+            .then((bloodPressures) => setBloodPressure(bloodPressures));
+        } else {
+          await Promise.all([
+            fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`)
+              .then((v) => v.json())
+              .then((timeRecord) => setTimeRecords(timeRecords)),
+            fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars`)
+              .then((v) => v.json())
+              .then((bloodSugars) => setBloodSugar(bloodSugars)),
+            fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures`).then(
+              (v) =>
+                v
+                  .json()
+                  .then((bloodPressures) => setBloodPressure(bloodPressures))
+            ),
+          ]);
+        }
+      } catch (error) {
+        toast.error("Something went wrong. Try again later");
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    []
+  );
 
   useEffect(() => {
     fetchRecords();
@@ -70,12 +86,14 @@ const TimeRecordPage = () => {
 
   return (
     <div className="w-4/5 mb-8">
-      <div className="text-3xl font-bold pb-8 flex justify-between items-center">
+      <div className="text-3xl font-bold pb-8 flex justify-between items-center flex-col gap-y-4">
         <div>我要記錄</div>
         <div className="flex gap-2">
-          <TimeRecordDialog onSuccess={fetchRecords} />
-          <BloodSugarDialog onSuccess={fetchRecords} />
-          <BloodPressureDialog onSuccess={fetchRecords} />
+          <TimeRecordDialog onSuccess={() => fetchRecords("timeRecords")} />
+          <BloodSugarDialog onSuccess={() => fetchRecords("bloodSugars")} />
+          <BloodPressureDialog
+            onSuccess={() => fetchRecords("bloodPressures")}
+          />
           {!isLoading && (
             <Dialog>
               <DialogTrigger asChild>
@@ -83,7 +101,7 @@ const TimeRecordPage = () => {
                   圖表分析
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-auto">
+              <DialogContent className="max-w-[80%] max-h-[80%] overflow-auto">
                 <TimeRecordChart timeRecords={timeRecords} />
                 <PulseChart bloodPressures={bloodPressures} />
               </DialogContent>

@@ -12,7 +12,9 @@ interface Props {
   timeRecords: TimeRecord[];
   bloodSugars: BloodSugar[];
   bloodPressures: BloodPressure[];
-  onUpdatedSuccess: () => void;
+  onUpdatedSuccess: (
+    type?: "timeRecords" | "bloodSugars" | "bloodPressures"
+  ) => void;
 }
 
 export const ListTable: React.FC<Props> = ({
@@ -38,7 +40,7 @@ export const ListTable: React.FC<Props> = ({
           }
         );
         toast.success("成功刪除活動");
-        onUpdatedSuccess();
+        onUpdatedSuccess("timeRecords");
       } catch (error) {
         toast.error("刪除活動失敗，請稍後再試");
         console.error(error);
@@ -59,7 +61,7 @@ export const ListTable: React.FC<Props> = ({
           }
         );
         toast.success("成功刪除血糖紀錄");
-        onUpdatedSuccess();
+        onUpdatedSuccess("bloodSugars");
       } catch (error) {
         toast.error("刪除血糖紀錄失敗，請稍後再試");
         console.error(error);
@@ -80,7 +82,7 @@ export const ListTable: React.FC<Props> = ({
           }
         );
         toast.success("成功刪除血壓紀錄");
-        onUpdatedSuccess();
+        onUpdatedSuccess("bloodPressures");
       } catch (error) {
         toast.error("刪除血壓紀錄失敗，請稍後再試");
         console.error(error);
@@ -127,10 +129,10 @@ export const ListTable: React.FC<Props> = ({
                 "rounded-br-md": key === timeRecords.length - 1,
               })}
             >
-              <div className="flex gap-2">
+              <div className="flex gap-2 md:flex-row flex-col">
                 <TimeRecordDialog
                   timeRecord={timeRecord}
-                  onSuccess={onUpdatedSuccess}
+                  onSuccess={() => onUpdatedSuccess("timeRecords")}
                 />
                 <Button
                   className="text-white px-4 py-2"
@@ -157,7 +159,7 @@ export const ListTable: React.FC<Props> = ({
               <div className="flex gap-2">
                 <BloodSugarDialog
                   bloodSugar={bloodSugar}
-                  onSuccess={onUpdatedSuccess}
+                  onSuccess={() => onUpdatedSuccess("bloodSugars")}
                 />
                 <Button
                   className="text-white px-4 py-2"
@@ -196,7 +198,7 @@ export const ListTable: React.FC<Props> = ({
               <div className="flex gap-2">
                 <BloodPressureDialog
                   bloodPressure={bloodPressure}
-                  onSuccess={onUpdatedSuccess}
+                  onSuccess={() => onUpdatedSuccess("bloodPressures")}
                 />
                 <Button
                   className="text-white px-4 py-2"
