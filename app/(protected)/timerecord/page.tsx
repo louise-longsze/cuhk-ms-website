@@ -73,9 +73,9 @@ const TimeRecordPage = () => {
       <div className="text-3xl font-bold pb-8 flex justify-between items-center">
         <div>我要記錄</div>
         <div className="flex gap-2">
-          <TimeRecordDialog onTimeRecordCreated={fetchRecords} />
-          <BloodSugarDialog onCreated={fetchRecords} />
-          <BloodPressureDialog onCreated={fetchRecords} />
+          <TimeRecordDialog onSuccess={fetchRecords} />
+          <BloodSugarDialog onSuccess={fetchRecords} />
+          <BloodPressureDialog onSuccess={fetchRecords} />
           {!isLoading && (
             <Dialog>
               <DialogTrigger asChild>

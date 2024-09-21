@@ -33,6 +33,7 @@ import {
   SelectTrigger,
 } from "@/components/ui/select";
 import { ACTIVITIES_TYPE_OPTIONS } from "@/constants/monthlyscheduler";
+import { TimeRecordDTO as TimeRecord } from "@/app/api/timeRecords/dto";
 
 const formSchema = z.object({
   datetime: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/g),
@@ -44,13 +45,24 @@ const formSchema = z.object({
 });
 
 interface Props {
-  onTimeRecordCreated: () => void;
+  onSuccess: () => void;
+  timeRecord?: TimeRecord;
 }
-export const TimeRecordDialog: React.FC<Props> = ({ onTimeRecordCreated }) => {
+export const TimeRecordDialog: React.FC<Props> = ({
+  onSuccess,
+  timeRecord,
+}) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       datetime: dayjs().format("YYYY-MM-DDTHH:mm"),
+      ...(timeRecord && {
+        name: timeRecord.name,
+        details: timeRecord.details,
+        location: timeRecord.location ?? undefined,
+        activityType: timeRecord.activityType,
+        durationInMin: timeRecord.durationInMin,
+      }),
     },
   });
 
@@ -59,20 +71,41 @@ export const TimeRecordDialog: React.FC<Props> = ({ onTimeRecordCreated }) => {
 
   const submitHandler = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
+    const data = {
+      datetime: new Date(values.datetime).toISOString(),
+    };
+
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...values,
-          datetime: new Date(values.datetime).toISOString(),
-        }),
-      });
+      if (timeRecord) {
+        await fetch(
+          `${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords/${timeRecord.id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...values,
+              ...data,
+            }),
+          }
+        );
+        toast.success("運動紀錄更新成功!");
+      } else {
+        await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/timeRecords`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...values,
+            ...data,
+          }),
+        });
+        toast.success("運動紀錄新增成功!");
+      }
       setOpen(false);
-      onTimeRecordCreated();
-      toast.success("Event Created!");
+      onSuccess();
       form.reset();
     } catch (e) {
       console.error(e);
@@ -84,11 +117,15 @@ export const TimeRecordDialog: React.FC<Props> = ({ onTimeRecordCreated }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">新增運動紀錄</Button>
+        <Button variant="outline">
+          {timeRecord ? "編輯" : "新增運動紀錄"}
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-auto">
         <DialogHeader>
-          <DialogTitle>新增運動紀錄</DialogTitle>
+          <DialogTitle>
+            {timeRecord ? "編輯運動紀錄" : "新增運動紀錄"}
+          </DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form
@@ -171,7 +208,7 @@ export const TimeRecordDialog: React.FC<Props> = ({ onTimeRecordCreated }) => {
                       <Input
                         {...field}
                         onChange={(event) =>
-                          field.onChange(+event.target.value)
+                          field.onChange(+event.target.value ?? 0)
                         }
                       />
                     </FormControl>

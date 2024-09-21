@@ -24,27 +24,42 @@ import {
 import { useState } from "react";
 import dayjs from "dayjs";
 import { toast } from "sonner";
+import { BloodSugarDTO as BloodSugar } from "@/app/api/bloodSugars/dto";
 
 const formSchema = z.object({
   datetime: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/g),
-  beforeBreakfast: z.string().optional(),
-  afterBreakfast: z.string().optional(),
-  beforeLunch: z.string().optional(),
-  afterLunch: z.string().optional(),
-  beforeDinner: z.string().optional(),
-  afterDinner: z.string().optional(),
-  beforeSleep: z.string().optional(),
+  beforeBreakfast: z.number().optional(),
+  afterBreakfast: z.number().optional(),
+  beforeLunch: z.number().optional(),
+  afterLunch: z.number().optional(),
+  beforeDinner: z.number().optional(),
+  afterDinner: z.number().optional(),
+  beforeSleep: z.number().optional(),
   remarks: z.string().optional(),
 });
 
 interface Props {
-  onCreated: () => void;
+  onSuccess: () => void;
+  bloodSugar?: BloodSugar;
 }
-export const BloodSugarDialog: React.FC<Props> = ({ onCreated }) => {
+export const BloodSugarDialog: React.FC<Props> = ({
+  onSuccess,
+  bloodSugar,
+}) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       datetime: dayjs().format("YYYY-MM-DDTHH:mm"),
+      ...(bloodSugar && {
+        beforeBreakfast: bloodSugar.beforeBreakfast ?? undefined,
+        afterBreakfast: bloodSugar.afterBreakfast ?? undefined,
+        beforeLunch: bloodSugar.beforeLunch ?? undefined,
+        afterLunch: bloodSugar.afterLunch ?? undefined,
+        beforeDinner: bloodSugar.beforeDinner ?? undefined,
+        afterDinner: bloodSugar.afterDinner ?? undefined,
+        beforeSleep: bloodSugar.beforeSleep ?? undefined,
+        remarks: bloodSugar.remarks ?? "",
+      }),
     },
   });
 
@@ -53,38 +68,58 @@ export const BloodSugarDialog: React.FC<Props> = ({ onCreated }) => {
 
   const submitHandler = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
+    const data = {
+      ...(values.beforeBreakfast && {
+        beforeBreakfast: values.beforeBreakfast,
+      }),
+      ...(values.afterBreakfast && {
+        afterBreakfast: values.afterBreakfast,
+      }),
+      ...(values.beforeLunch && {
+        beforeLunch: values.beforeLunch,
+      }),
+      ...(values.afterLunch && { afterLunch: values.afterLunch }),
+      ...(values.beforeDinner && {
+        beforeDinner: values.beforeDinner,
+      }),
+      ...(values.afterDinner && {
+        afterDinner: values.afterDinner,
+      }),
+      ...(values.beforeSleep && {
+        beforeSleep: values.beforeSleep,
+      }),
+      datetime: new Date(values.datetime).toISOString(),
+    };
+
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...values,
-          ...(values.beforeBreakfast && {
-            beforeBreakfast: Number(values.beforeBreakfast),
+      if (bloodSugar) {
+        await fetch(
+          `${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars/${bloodSugar.id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...values,
+              ...data,
+            }),
+          }
+        );
+      } else {
+        await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodSugars`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...values,
+            ...data,
           }),
-          ...(values.afterBreakfast && {
-            afterBreakfast: Number(values.afterBreakfast),
-          }),
-          ...(values.beforeLunch && {
-            beforeLunch: Number(values.beforeLunch),
-          }),
-          ...(values.afterLunch && { afterLunch: Number(values.afterLunch) }),
-          ...(values.beforeDinner && {
-            beforeDinner: Number(values.beforeDinner),
-          }),
-          ...(values.afterDinner && {
-            afterDinner: Number(values.afterDinner),
-          }),
-          ...(values.beforeSleep && {
-            beforeSleep: Number(values.beforeSleep),
-          }),
-          datetime: new Date(values.datetime).toISOString(),
-        }),
-      });
+        });
+      }
       setOpen(false);
-      onCreated();
+      onSuccess();
       toast.success("血糖紀錄新增!");
       form.reset();
     } catch (e) {
@@ -97,11 +132,15 @@ export const BloodSugarDialog: React.FC<Props> = ({ onCreated }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">新增血糖紀錄</Button>
+        <Button variant="outline">
+          {bloodSugar ? "編輯" : "新增血糖紀錄"}
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-auto">
         <DialogHeader>
-          <DialogTitle>新增血糖紀錄</DialogTitle>
+          <DialogTitle>
+            {bloodSugar ? "編輯血糖紀錄" : "新增血糖紀錄"}
+          </DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form
@@ -143,7 +182,13 @@ export const BloodSugarDialog: React.FC<Props> = ({ onCreated }) => {
                     <FormItem>
                       <FormLabel>{label}</FormLabel>
                       <FormControl>
-                        <Input placeholder="mmol/L" {...field} />
+                        <Input
+                          placeholder="mmol/L"
+                          {...field}
+                          onChange={(event) =>
+                            field.onChange(+event.target.value ?? 0)
+                          }
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

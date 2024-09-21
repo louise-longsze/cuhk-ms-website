@@ -24,22 +24,29 @@ import {
 import { useState } from "react";
 import dayjs from "dayjs";
 import { toast } from "sonner";
+import { BloodPressureDTO as BloodPressure } from "@/app/api/bloodPressures/dto";
 
 const formSchema = z.object({
   datetime: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/g),
-  sbp: z.string().min(0).max(300),
-  dbp: z.string().min(0).max(300),
-  pulse: z.string().min(0).max(300),
+  sbp: z.number().min(0),
+  dbp: z.number().min(0),
+  pulse: z.number().min(0),
 });
 
 interface Props {
-  onCreated: () => void;
+  onSuccess: () => void;
+  bloodPressure?: BloodPressure;
 }
-export const BloodPressureDialog: React.FC<Props> = ({ onCreated }) => {
+export const BloodPressureDialog: React.FC<Props> = ({ onSuccess, bloodPressure }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      datetime: dayjs().format("YYYY-MM-DDTHH:mm"),
+      datetime: dayjs(bloodPressure?.datetime).format("YYYY-MM-DDTHH:mm"),
+      ...(bloodPressure && {
+        sbp: bloodPressure.sbp ?? 20,
+        dbp: bloodPressure.dbp ?? 20,
+        pulse: bloodPressure.pulse ?? 20,
+      })
     },
   });
 
@@ -49,21 +56,41 @@ export const BloodPressureDialog: React.FC<Props> = ({ onCreated }) => {
   const submitHandler = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...values,
-          sbp: Number(values.sbp),
-          dbp: Number(values.dbp),
-          pulse: Number(values.pulse),
-          datetime: new Date(values.datetime).toISOString(),
-        }),
-      });
+      if (bloodPressure) {
+        await fetch(
+          `${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures/${bloodPressure.id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...values,
+              id: bloodPressure.id,
+              sbp: values.sbp,
+              dbp: values.dbp,
+              pulse: values.pulse,
+              datetime: new Date(values.datetime).toISOString(),
+            }),
+          }
+        );
+      } else {
+        await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/bloodPressures`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...values,
+            sbp: Number(values.sbp),
+            dbp: Number(values.dbp),
+            pulse: Number(values.pulse),
+            datetime: new Date(values.datetime).toISOString(),
+          }),
+        });
+      }
       setOpen(false);
-      onCreated();
+      onSuccess();
       toast.success("血壓紀錄新增!");
       form.reset();
     } catch (e) {
@@ -76,11 +103,15 @@ export const BloodPressureDialog: React.FC<Props> = ({ onCreated }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">新增血壓紀錄</Button>
+        <Button variant="outline">
+          {bloodPressure ? "編輯" : "新增血壓紀錄"}
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-[80%] overflow-auto">
         <DialogHeader>
-          <DialogTitle>新增血壓紀錄</DialogTitle>
+          <DialogTitle>
+            {bloodPressure ? "編輯血壓紀錄" : "新增血壓紀錄"}
+          </DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form
@@ -118,7 +149,12 @@ export const BloodPressureDialog: React.FC<Props> = ({ onCreated }) => {
                     <FormItem>
                       <FormLabel>{label}</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          {...field}
+                          onChange={(event) =>
+                            field.onChange(+event.target.value ?? 0)
+                          }
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

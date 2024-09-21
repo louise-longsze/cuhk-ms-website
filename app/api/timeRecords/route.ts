@@ -4,15 +4,7 @@ import { TimeRecord } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import dayjs from "dayjs";
 import { MONTHLY_SCHEDULER_MONTH_RANGE } from "@/constants/monthlyscheduler";
-import { transformActivityType, transformActivityTypeEnum } from "./dto";
-
-function transformTimeRecord(timeRecord: TimeRecord) {
-  return {
-    ...timeRecord,
-    activityType: transformActivityType(timeRecord.activityType),
-    datetime: dayjs(timeRecord.datetime).format("YYYY-MM-DD HH:mm:ss"),
-  };
-}
+import { transformActivityType, transformActivityTypeEnum, transformTimeRecord } from "./dto";
 
 export async function GET() {
   const user = await currentUser();

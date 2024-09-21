@@ -4,13 +4,7 @@ import { BloodPressure } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import dayjs from "dayjs";
 import { MONTHLY_SCHEDULER_MONTH_RANGE } from "@/constants/monthlyscheduler";
-
-function transformBloodPressure(bloodPressure: BloodPressure) {
-  return {
-    ...bloodPressure,
-    datetime: dayjs(bloodPressure.datetime).format("YYYY-MM-DD HH:mm:ss"),
-  };
-}
+import { transformBloodPressure } from "./dto";
 
 export async function GET() {
   const user = await currentUser();
